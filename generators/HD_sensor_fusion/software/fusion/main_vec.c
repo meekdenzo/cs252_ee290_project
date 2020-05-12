@@ -57,6 +57,7 @@ int main(){
     #endif
 
 	for(int ix = 0; ix < NUMBER_OF_INPUT_SAMPLES-N+1; ix++){
+
         #if PROFILE == 1
             uint64_t temporal_start = read_cycles();
         #endif
@@ -95,36 +96,25 @@ int main(){
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
                 for (int x = 0; x < consumed; x++){
-                    //if (x == 0) {
-                    //    xor[b+x] = 0ULL;
-                    //}
-                    //else {
                         xor_cpu[b+x] = q[0][b+x]>>1;
-                    //}
-                    //printf("%d\n", x);
                 }
-                //for (int x = 0; x < consumed; x++){
-                //    q[0][b+x] = q[z][b+x] ^ xor[b+x];
-                //}
-                //q[0][b] = q[z][b] ^ xor[b];
                 asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
                 asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
-                asm volatile ("vmca va2, %0" : : "r" (&xor_hwacha[b]));
-                asm volatile ("vmca va3, %0" : : "r" (&xor_cpu[b]));
+                //asm volatile ("vmca va3, %0" : : "r" (&xor_hwacha[b]));
+                asm volatile ("vmca va2, %0" : : "r" (&xor_cpu[b]));
                 //asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
-                asm volatile ("la %0, ngram1_bind_v" : "=r" (ngram1_bind_addr));
-                asm volatile ("vf 0(%0)" : : "r" (ngram1_bind_addr));
+                //asm volatile ("la %0, ngram1_bind_v" : "=r" (ngram1_bind_addr));
+                //asm volatile ("vf 0(%0)" : : "r" (ngram1_bind_addr));
+                asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr);
+                asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
                 int count = 0;
-                for (int x = 0; x < consumed; x++){
-                    if (xor_cpu[b+x] = xor_hwacha[b+x]){
+
+                for (int x = 0; x < consumed; x++) {
+                    if (xor_cpu[b+x] == xor_hwacha[b+x])
                         count = count + 1;
-                    }
+                    printf("%d\n", count);
                 }
-                printf("%d\n", count);
-                //printf("%d\n", b);
-                //printf("%d\n", consumed);
                 b += consumed;
-                //printf("%d\n", b);
             }
 
             //void * ngram_bind_addr;
@@ -142,7 +132,7 @@ int main(){
             //    b += consumed;
                 //printf("%d\n", b);
                 //printf("%d\n", consumed);
-        }
+        
 
             //#else
 
@@ -167,8 +157,7 @@ int main(){
 			//q[0][0] = (q[0][0] >> 1) | (overflow << (64 - 1));
 			//q[0][0] = q[z][0] ^ q[0][0];
             //#endif
- 
-		//}
+		}
         #endif
 	
         #if PROFILE == 1
@@ -217,10 +206,9 @@ int main(){
             #if PROFILE == 1
                 printf("Spatial update cycles: %llu\n", read_cycles() - spatial_start);
             #endif
-
         }
-
-	}
+    }
+	
 
     printf("Total cycles: %llu\n", read_cycles() - total_start);
 
