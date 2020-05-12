@@ -3,6 +3,7 @@
 .text
 
 .globl ngram_bind_v
+.globl xor_ngram_v
 
 
 #
@@ -18,4 +19,13 @@ ngram_bind_v:
 	vsrl vv0, vv0, vs1		# permute: q[0] >> 1, logical fill w/0s every 64 bits
 	vxor vv0, vv0, vv2		# q[0] = permutedd(q[0]) ^ q[z]
 	vsd vv0, va0
+	vstop
+
+.align 3
+xor_ngram_v:
+	vpset vp0
+	vld vv0, va0
+	vld vv1, va1
+	vxor vv2, vv0, vv1
+	vsd vv2, va2
 	vstop
