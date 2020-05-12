@@ -96,8 +96,8 @@ int main(){
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
                 for (int x = 0; x < consumed; x++){
-                    //xor_cpu[b+x] = q[0][b+x]>>1;
-                    xor_cpu[b+x] = q[0][b+x-1];
+                    xor_cpu[b+x] = q[0][b+x]>>1;
+                    // xor_cpu[b+x] = q[0][b+x-1];
                 }
                 asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
                 asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
