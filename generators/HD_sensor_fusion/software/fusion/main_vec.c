@@ -71,21 +71,28 @@ int main(){
             //Much more hardware optimal!
 
             //Vectorize this block
-            void * ngram_bind_addr;
-            uint64_t one = 0x1ULL;
-            asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
-            asm volatile ("vmcs vs1, %0" : : "r" (one));
-            for(int b = bit_dim; b >= 0; ){
-                int consumed; 
-                asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (b+1));
-                asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
-                asm volatile ("vmca va1, %0" : : "r" (&q[1][b]));
-                asm volatile ("vmca va2, %0" : : "r" (&q[2][b]));
-                asm volatile ("la %0, ngram_bind_v" : "=r" (ngram_bind_addr));
-                asm volatile ("vf 0(%0)" : : "r" (ngram_bind_addr));
-                //q[0][b] = q[z][b] ^ (b == 0 ? 0ULL : q[0][b-1]);
-                b -= consumed;
+            for(int b = bit_dim; b >= 0; b--){
+                if ((b % 64) == 0)
+                    q[0][b] = q[z][b] ^ 0ULL;
+                else
+                    q[0][b] = q[z][b] ^ q[0][b-1];
             }
+
+            //void * ngram_bind_addr;
+            //uint64_t one = 0x1ULL;
+            //asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
+            //asm volatile ("vmcs vs1, %0" : : "r" (one));
+            //for(int b = bit_dim; b >= 0; ){
+            //    int consumed; 
+            //    asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (b+1));
+            //    asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
+            //   asm volatile ("vmca va1, %0" : : "r" (&q[1][b]));
+            //    asm volatile ("vmca va2, %0" : : "r" (&q[2][b]));
+            //    asm volatile ("la %0, ngram_bind_v" : "=r" (ngram_bind_addr));
+            //    asm volatile ("vf 0(%0)" : : "r" (ngram_bind_addr));
+                //q[0][b] = q[z][b] ^ (b == 0 ? 0ULL : q[0][b-1]);
+            //    b -= consumed;
+            //}
             //
 
             #else
