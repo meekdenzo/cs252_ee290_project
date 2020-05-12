@@ -88,9 +88,9 @@ int main(){
             //    }
             //    b -= consumed;
             //}
+            int consumed; 
 
             for(int b = 0; b < bit_dim+1; ){
-                int consumed; 
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
                 for (int x = 0; x < consumed; x++){
                     if (((b+x) % 64) == 0) {
@@ -100,6 +100,7 @@ int main(){
                         xor[b+x] = q[0][b+x-1];
                     }
                     q[0][b+x] = q[z][b+x] ^ xor[b+x];
+                    printf("%d\n", x);
                 }
                 //q[0][b] = q[z][b] ^ xor[b];
                 //asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
@@ -110,6 +111,7 @@ int main(){
                 printf("%d\n", b);
                 printf("%d\n", consumed);
                 b += consumed;
+                printf("%d\n", b);
             }
 
             //void * ngram_bind_addr;
@@ -127,7 +129,7 @@ int main(){
             //    b += consumed;
                 //printf("%d\n", b);
                 //printf("%d\n", consumed);
-            }
+        }
 
             //#else
 
