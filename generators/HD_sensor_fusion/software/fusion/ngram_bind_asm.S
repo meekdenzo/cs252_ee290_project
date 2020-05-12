@@ -28,6 +28,8 @@ ngram1_bind_v:
 	vld vv0, va0			# q[0], ngram 0
 	vld vv1, va1			# q[z], ngram z
 	vsrl vv2, vv0, vs1		# permute: q[0] >> 1, logical fill w/0s every 64 bits
+	vsd vv2, va2 			# check permutation against cpu permutation
+	vld vv2, va3			# use cpu permutation
 	vxor vv3, vv2, vv1		# vv3 = permuted(q[0]) ^ q[z]
 	vsd vv3, va0			# write vv3 into q[0]
 	vstop

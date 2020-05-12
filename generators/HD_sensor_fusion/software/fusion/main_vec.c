@@ -22,7 +22,8 @@ int main(){
 	uint64_t old_overflow = 0;
 	uint64_t mask = 1;
 	uint64_t q[N][bit_dim + 1];
-    uint64_t xor[bit_dim + 1];
+    uint64_t xor_cpu[bit_dim + 1];
+    uint64_t xor_hwacha[bit_dim + 1];
     uint64_t q_GSR[bit_dim + 1], q_ECG[bit_dim+1], q_EEG[bit_dim+1] = {0};
 	int class;
     int overflow_bits = dimension % 64;
@@ -93,24 +94,33 @@ int main(){
 
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
-                //for (int x = 0; x < consumed; x++){
+                for (int x = 0; x < consumed; x++){
                     //if (x == 0) {
                     //    xor[b+x] = 0ULL;
                     //}
                     //else {
-                    //    xor[b+x] = q[0][b+x-1];
+                        xor_cpu[b+x] = q[0][b+x]>>1;
                     //}
                     //printf("%d\n", x);
-                //}
+                }
                 //for (int x = 0; x < consumed; x++){
                 //    q[0][b+x] = q[z][b+x] ^ xor[b+x];
                 //}
                 //q[0][b] = q[z][b] ^ xor[b];
                 asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
                 asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
+                asm volatile ("vmca va2, %0" : : "r" (&xor_hwacha[b]));
+                asm volatile ("vmca va3, %0" : : "r" (&xor_cpu[b]));
                 //asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
                 asm volatile ("la %0, ngram1_bind_v" : "=r" (ngram1_bind_addr));
                 asm volatile ("vf 0(%0)" : : "r" (ngram1_bind_addr));
+                int count = 0;
+                for (int x = 0; x < consumed; x++){
+                    if (xor_cpu[b+x] = xor_hwacha[b+x]){
+                        count = count + 1;
+                    }
+                }
+                printf("%d\n", count);
                 //printf("%d\n", b);
                 //printf("%d\n", consumed);
                 b += consumed;
