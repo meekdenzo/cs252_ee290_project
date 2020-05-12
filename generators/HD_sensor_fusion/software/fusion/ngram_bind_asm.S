@@ -24,8 +24,8 @@ ngram_bind_v:
 #.align 3
 xor_ngram_v:
 	vpset vp0
-	vld vv0, va0
-	vld vv1, va1
-	vxor vv2, vv0, vv1
-	vsd vv2, va2
+	vld vv0, va1 # q[x][b]
+	vld vv1, va2 # xor[b]
+	vxor vv2, vv0, vv1 # vv2 = q[x][b] ^ xor[b]
+	vsd vv2, va0 # q[0][b] = vv2
 	vstop

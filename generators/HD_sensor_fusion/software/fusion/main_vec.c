@@ -70,10 +70,10 @@ int main(){
             //Here the hypervector q[0] is shifted by 64 bits as permutation (no circularity),
 			//before performing the componentwise XOR operation with the new query (q[z]).
             //Much more hardware optimal!
-            //void * xor_ngram_addr;
+            void * xor_ngram_addr;
             asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
             //uint64_t one = 0x1ULL;
-            //asm volatile ("vmcs vs1, %0" : : "r" (one));
+            //asm volatile ("vmcs vs1, %0" : : "r" (one))
             //Vectorize this block
             //for(int b = bit_dim; b >= 0; ){
             //    int consumed; 
@@ -101,19 +101,19 @@ int main(){
                     //}
                     //printf("%d\n", x);
                 }
-                for (int x = 0; x < consumed; x++){
-                    q[0][b+x] = q[z][b+x] ^ xor[b+x];
-                }
+                //for (int x = 0; x < consumed; x++){
+                //    q[0][b+x] = q[z][b+x] ^ xor[b+x];
+                //}
                 //q[0][b] = q[z][b] ^ xor[b];
-                //asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
-                //asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
-                //asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
-                //asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr));
-                //asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
-                printf("%d\n", b);
-                printf("%d\n", consumed);
-                b += consumed;
-                printf("%d\n", b);
+                asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
+                asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
+                asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
+                asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr));
+                asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
+                //printf("%d\n", b);
+                //printf("%d\n", consumed);
+                //b += consumed;
+                //printf("%d\n", b);
             }
 
             //void * ngram_bind_addr;
