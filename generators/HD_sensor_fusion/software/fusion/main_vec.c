@@ -77,11 +77,13 @@ int main(){
             for(int b = bit_dim; b >= 0; ){
                 int consumed; 
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (b+1));
-                if ((b % 64) == 0) {
-                    q[0][b] = q[z][b] ^ 0ULL;
-                }
-                else {
-                    q[0][b] = q[z][b] ^ q[0][b-1];
+                for (int x = 0; x < consumed; x++){
+                    if (((b-x) % 64) == 0) {
+                        q[0][b-x] = q[z][b-x] ^ 0ULL;
+                    }
+                    else {
+                        q[0][b-x] = q[z][b-x] ^ q[0][b-x-1];
+                    }
                 }
                 b -= consumed;
             }
