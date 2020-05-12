@@ -92,6 +92,7 @@ int main(){
             //    b -= consumed;
             //}
             int consumed; 
+            int count;
 
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
