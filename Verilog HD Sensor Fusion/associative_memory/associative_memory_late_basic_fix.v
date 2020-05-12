@@ -224,7 +224,7 @@ end
 // input data
 always @ (posedge Clk_CI) begin
 	if (Reset_RI) begin
-		QueryHypervector_DP = {`HV_DIMENSION{1'b0}};
+		QueryHypervector_DP = {`HV_DIMENSION{1'b0}}
 	end
 	else if (QueryHypervectorEN_S) begin
 		QueryHypervector_DP = QueryHypervector_DN;
