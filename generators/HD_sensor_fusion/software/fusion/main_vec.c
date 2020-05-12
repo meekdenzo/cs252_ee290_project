@@ -65,7 +65,7 @@ int main(){
         //temporal encode
 		for(int z = 1; z < N; z++){
             
-            #if temporal_shift == 64
+            //#if temporal_shift == 64
             //Here the hypervector q[0] is shifted by 64 bits as permutation (no circularity),
 			//before performing the componentwise XOR operation with the new query (q[z]).
             //Much more hardware optimal!
@@ -95,29 +95,29 @@ int main(){
             //}
             //
 
-            #else
+            //#else
 
 			//Here the hypervector q[0] is shifted by 1 position as permutation,
 			//before performing the componentwise XOR operation with the new query (q[z]).
-			overflow = q[0][0] & mask;
+			//overflow = q[0][0] & mask;
 
-			for(int i = 1; i < bit_dim; i++){
+			//for(int i = 1; i < bit_dim; i++){
 
-				old_overflow = overflow;
-				overflow = q[0][i] & mask;
-				q[0][i] = (q[0][i] >> 1) | (old_overflow << (64 - 1));
-				q[0][i] = q[z][i] ^ q[0][i];
+			//	old_overflow = overflow;
+			//	overflow = q[0][i] & mask;
+			//	q[0][i] = (q[0][i] >> 1) | (old_overflow << (64 - 1));
+			//	q[0][i] = q[z][i] ^ q[0][i];
 
-			}
+			//}
 
-			old_overflow = overflow;
-			overflow = (q[0][bit_dim] >> overflow_bits) & mask;
-			q[0][bit_dim] = (q[0][bit_dim] >> 1) | (old_overflow << (64 - 1));
-			q[0][bit_dim] = q[z][bit_dim] ^ q[0][bit_dim];
+			//old_overflow = overflow;
+			//overflow = (q[0][bit_dim] >> overflow_bits) & mask;
+			//q[0][bit_dim] = (q[0][bit_dim] >> 1) | (old_overflow << (64 - 1));
+			//q[0][bit_dim] = q[z][bit_dim] ^ q[0][bit_dim];
 
-			q[0][0] = (q[0][0] >> 1) | (overflow << (64 - 1));
-			q[0][0] = q[z][0] ^ q[0][0];
-            #endif
+			//q[0][0] = (q[0][0] >> 1) | (overflow << (64 - 1));
+			//q[0][0] = q[z][0] ^ q[0][0];
+            //#endif
  
 		}
         #endif
