@@ -74,7 +74,7 @@ int main(){
             //Much more hardware optimal!
             void * xor_ngram_addr;
             void * ngram1_bind_addr;
-            asm volatile ("vsetcfg %0" : : "r" (VCFG(N+1, 0, 0, 1)));
+            asm volatile ("vsetcfg %0" : : "r" (VCFG(N-1, 0, 0, 1)));
             uint64_t one = 0x1ULL;
             asm volatile ("vmcs vs1, %0" : : "r" (one));
             //Vectorize this block
@@ -96,10 +96,10 @@ int main(){
 
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
-                for (int x = 0; x < consumed; x++){
-                   xor_cpu[b+x] = q[0][b+x]>>1;
+                //for (int x = 0; x < consumed; x++){
+                //   xor_cpu[b+x] = q[0][b+x]>>1;
                     // xor_cpu[b+x] = q[0][b+x-1];
-                }
+                //}
                 asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
                 asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
                 asm volatile ("vmca va3, %0" : : "r" (&xor_hwacha[b]));
@@ -111,11 +111,11 @@ int main(){
                 //asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
                 //int count = 0;
 
-                for (int x = 0; x < consumed; x++) {
-                    if (xor_cpu[b+x] == xor_hwacha[b+x])
-                        count = count + 1;
-                }
-                printf("%d\n", count);
+                //for (int x = 0; x < consumed; x++) {
+                //    if (xor_cpu[b+x] == xor_hwacha[b+x])
+                //        count = count + 1;
+                //}
+                //printf("%d\n", count);
                 b += consumed;
             }
 
