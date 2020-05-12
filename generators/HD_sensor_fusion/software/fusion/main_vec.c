@@ -70,7 +70,7 @@ int main(){
             //Here the hypervector q[0] is shifted by 64 bits as permutation (no circularity),
 			//before performing the componentwise XOR operation with the new query (q[z]).
             //Much more hardware optimal!
-            void * xor_ngram_addr;
+            //void * xor_ngram_addr;
             asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
             //uint64_t one = 0x1ULL;
             //asm volatile ("vmcs vs1, %0" : : "r" (one));
@@ -93,14 +93,16 @@ int main(){
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
                 for (int x = 0; x < consumed; x++){
-                    if (x == 0) {
-                        xor[b+x] = 0ULL;
-                    }
-                    else {
+                    //if (x == 0) {
+                    //    xor[b+x] = 0ULL;
+                    //}
+                    //else {
                         xor[b+x] = q[0][b+x-1];
-                    }
+                    //}
+                    //printf("%d\n", x);
+                }
+                for (int x = 0; x < consumed; x++){
                     q[0][b+x] = q[z][b+x] ^ xor[b+x];
-                    printf("%d\n", x);
                 }
                 //q[0][b] = q[z][b] ^ xor[b];
                 //asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
