@@ -21,11 +21,11 @@ ngram_bind_v:
 	vsd vv0, va0
 	vstop
 
-.align 3
-xor_ngram_v:
-	vpset vp0
-	vld vv0, va0
-	vld vv1, va1
-	vxor vv2, vv0, vv1
-	vsd vv2, va2
-	vstop
+#.align 3
+#xor_ngram_v:
+#	vpset vp0
+#	vld vv0, va0
+#	vld vv1, va1
+#	vxor vv2, vv0, vv1
+#	vsd vv2, va2
+#	vstop
