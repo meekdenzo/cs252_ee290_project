@@ -74,7 +74,7 @@ int main(){
             //Much more hardware optimal!
             void * xor_ngram_addr;
             void * ngram1_bind_addr;
-            asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
+            asm volatile ("vsetcfg %0" : : "r" (VCFG(N+1, 0, 0, 1)));
             uint64_t one = 0x1ULL;
             asm volatile ("vmcs vs1, %0" : : "r" (one));
             //Vectorize this block
@@ -101,20 +101,20 @@ int main(){
                 }
                 asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
                 asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
-                //asm volatile ("vmca va3, %0" : : "r" (&xor_hwacha[b]));
-                asm volatile ("vmca va2, %0" : : "r" (&xor_cpu[b]));
+                asm volatile ("vmca va3, %0" : : "r" (&xor_hwacha[b]));
+                //asm volatile ("vmca va2, %0" : : "r" (&xor_cpu[b]));
                 //asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
-                //asm volatile ("la %0, ngram1_bind_v" : "=r" (ngram1_bind_addr));
-                //asm volatile ("vf 0(%0)" : : "r" (ngram1_bind_addr));
-                asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr));
-                asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
+                asm volatile ("la %0, ngram1_bind_v" : "=r" (ngram1_bind_addr));
+                asm volatile ("vf 0(%0)" : : "r" (ngram1_bind_addr));
+                //asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr));
+                //asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
                 //int count = 0;
 
-                //for (int x = 0; x < consumed; x++) {
-                //    if (xor_cpu[b+x] == xor_hwacha[b+x])
-                //        count = count + 1;
-                //    printf("%d\n", count);
-                //}
+                for (int x = 0; x < consumed; x++) {
+                    if (xor_cpu[b+x] == xor_hwacha[b+x])
+                        count = count + 1;
+                }
+                printf("%d\n", count);
                 b += consumed;
             }
 
