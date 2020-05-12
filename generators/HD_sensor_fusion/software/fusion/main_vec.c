@@ -93,7 +93,7 @@ int main(){
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
                 for (int x = 0; x < consumed; x++){
-                    if (((b+x) % 64) == 0) {
+                    if (x == 0) {
                         xor[b+x] = 0ULL;
                     }
                     else {
