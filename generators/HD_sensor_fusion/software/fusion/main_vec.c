@@ -66,15 +66,15 @@ int main(){
 
         #if N > 1
         //temporal encode
-		for(int z = 1; z < N; z++){
+		//for(int z = 1; z < N; z++){
             
             //#if temporal_shift == 64
             //Here the hypervector q[0] is shifted by 64 bits as permutation (no circularity),
 			//before performing the componentwise XOR operation with the new query (q[z]).
             //Much more hardware optimal!
-            void * xor_ngram_addr;
+            //void * xor_ngram_addr;
             void * ngram1_bind_addr;
-            asm volatile ("vsetcfg %0" : : "r" (VCFG(N-1, 0, 0, 1)));
+            asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
             uint64_t one = 0x1ULL;
             asm volatile ("vmcs vs1, %0" : : "r" (one));
             //Vectorize this block
@@ -92,7 +92,7 @@ int main(){
             //    b -= consumed;
             //}
             int consumed; 
-            int count = 0;
+            //int count = 0;
 
             for(int b = 0; b < bit_dim+1; ){
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
@@ -101,10 +101,9 @@ int main(){
                     // xor_cpu[b+x] = q[0][b+x-1];
                 //}
                 asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
-                asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
-                asm volatile ("vmca va3, %0" : : "r" (&xor_hwacha[b]));
-                //asm volatile ("vmca va2, %0" : : "r" (&xor_cpu[b]));
-                //asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
+                asm volatile ("vmca va1, %0" : : "r" (&q[1][b]));
+                asm volatile ("vmca va2, %0" : : "r" (&q[2][b]));
+                //asm volatile ("vmca va3, %0" : : "r" (&xor_hwacha[b]));
                 asm volatile ("la %0, ngram1_bind_v" : "=r" (ngram1_bind_addr));
                 asm volatile ("vf 0(%0)" : : "r" (ngram1_bind_addr));
                 //asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr));
@@ -159,7 +158,7 @@ int main(){
 			//q[0][0] = (q[0][0] >> 1) | (overflow << (64 - 1));
 			//q[0][0] = q[z][0] ^ q[0][0];
             //#endif
-		}
+		//}
         #endif
 	
         #if PROFILE == 1
