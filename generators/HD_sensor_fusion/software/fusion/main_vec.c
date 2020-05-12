@@ -63,7 +63,7 @@ int main(){
 
         #if N > 1
         //temporal encode
-		//for(int z = 1; z < N; z++){
+		for(int z = 1; z < N; z++){
             
             #if temporal_shift == 64
             //Here the hypervector q[0] is shifted by 64 bits as permutation (no circularity),
@@ -119,7 +119,7 @@ int main(){
 			q[0][0] = q[z][0] ^ q[0][0];
             #endif
  
-		//}
+		}
         #endif
 	
         #if PROFILE == 1
