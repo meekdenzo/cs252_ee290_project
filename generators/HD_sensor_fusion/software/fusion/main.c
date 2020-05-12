@@ -69,7 +69,10 @@ int main(){
 			//before performing the componentwise XOR operation with the new query (q[z]).
             //Much more hardware optimal!
             for(int b = bit_dim; b >= 0; b--){
-                q[0][b] = q[z][b] ^ (b == 0 ? 0ULL : q[0][b-1]);
+                if ((b % 64) == 0)
+                    q[0][b] = q[z][b] ^ 0ULL;
+                else
+                    q[0][b] = q[z][b] ^ q[0][b-1];
             }
 
             #else
