@@ -113,7 +113,7 @@ int main(){
             asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
             uint64_t one = 0x1ULL;
             asm volatile ("vmcs vs1, %0" : : "r" (one));
-            for(int b = 0; b >= bit_dim+1; ){
+            for(int b = 0; b < bit_dim+1; ){
                 int consumed; 
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
                 asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
