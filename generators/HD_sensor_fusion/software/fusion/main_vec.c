@@ -101,18 +101,18 @@ int main(){
                     //}
                     //printf("%d\n", x);
                 }
-                //for (int x = 0; x < consumed; x++){
-                //    q[0][b+x] = q[z][b+x] ^ xor[b+x];
-                //}
+                for (int x = 0; x < consumed; x++){
+                    q[0][b+x] = q[z][b+x] ^ xor[b+x];
+                }
                 //q[0][b] = q[z][b] ^ xor[b];
-                asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
-                asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
-                asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
-                asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr));
-                asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
+                //asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
+                //asm volatile ("vmca va1, %0" : : "r" (&q[z][b]));
+                //asm volatile ("vmca va2, %0" : : "r" (&xor[b]));
+                //asm volatile ("la %0, xor_ngram_v" : "=r" (xor_ngram_addr));
+                //asm volatile ("vf 0(%0)" : : "r" (xor_ngram_addr));
                 //printf("%d\n", b);
                 //printf("%d\n", consumed);
-                //b += consumed;
+                b += consumed;
                 //printf("%d\n", b);
             }
 
