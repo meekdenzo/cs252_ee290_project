@@ -5,6 +5,8 @@
 #include "fusion_funcs.h"
 #include "vec_majority_3.h"
 #include "init.h"
+#include "util.h"
+#include "vec-util.h"
 //the data.h and mems_<early/late>.h file can be created directly in MATLAB (after the simulation)
 //using the function "data_file_creator.m"
 #include "data.h"
@@ -69,7 +71,10 @@ int main(){
             //Much more hardware optimal!
 
             //Vectorize this block
+            void * ngram_bind_addr;
+            uint64_t one = 0x1ULL;
             asm volatile ("vsetcfg %0" : : "r" (VCFG(N, 0, 0, 1)));
+            asm volatile ("vmcs vs1, %0" : : "r" (one));
             for(int b = bit_dim; b >= 0; ){
                 int consumed; 
                 asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (b+1));
