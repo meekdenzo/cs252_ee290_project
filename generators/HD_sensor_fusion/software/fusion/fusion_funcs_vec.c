@@ -14,7 +14,7 @@ uint64_t read_cycles() {
     return cycles;
 }
 
-int min_dist_hamm(int distances[classes]){
+int min_dist_hamm_vec(int distances[classes]){
 /*************************************************************************
 	DESCRIPTION: computes the minimum Hamming Distance.
 
@@ -79,7 +79,7 @@ void hamming_dist_vec(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], int s
 	
 }
 
-void computeNgram(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit_dim + 1], uint64_t projM_pos[][bit_dim + 1], uint64_t projM_neg[][bit_dim + 1], uint64_t query[bit_dim + 1]){
+void computeNgram_vec(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit_dim + 1], uint64_t projM_pos[][bit_dim + 1], uint64_t projM_neg[][bit_dim + 1], uint64_t query[bit_dim + 1]){
 /*************************************************************************
 	DESCRIPTION: computes the N-gram
 
@@ -148,7 +148,7 @@ void computeNgram(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit
 
 }
 
-int numberOfSetBits(uint64_t i)
+int numberOfSetBits_vec(uint64_t i)
 {
 /*************************************************************************
 	DESCRIPTION:   computes the number of 1's

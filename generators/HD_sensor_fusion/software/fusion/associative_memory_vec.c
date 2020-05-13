@@ -22,7 +22,7 @@ int associative_memory_64bit_vec(uint64_t q_64[bit_dim + 1], uint64_t aM_64[][bi
 	hamming_dist_vec(q_64, aM_64, sims);
  
 	//Classification with Hamming Metri
-	class = min_dist_hamm(sims);
+	class = min_dist_hamm_vec(sims);
 
  
 
