@@ -22,7 +22,7 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     void * AM_addr;
     uint64_t tmp[bit_dim + 1];
     int consumed;
-    CHANGE NUMBER OF VECTOR REGISTERS NEEDED
+    //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
     asm volatile ("vsetcfg %0" : : "r" (VCFG(2, 0, 0, 1)));
     //uint64_t one = 0x1ULL;
     //asm volatile ("vmcs vs1, %0" : : "r" (one));
