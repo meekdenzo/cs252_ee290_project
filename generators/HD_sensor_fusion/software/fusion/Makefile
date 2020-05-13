@@ -10,7 +10,7 @@ else
 endif
 
 BENCH_COMMON = $(abs_top_srcdir)/esp-tests/benchmarks/common
-FUSION_FUNCS = $(abs_top_srcdir)/fusion/fusion_funcs.c $(abs_top_srcdir)/fusion/fusion_funcs_vec.c $(abs_top_srcdir)/fusion/associative_memory.c $(abs_top_srcdir)/fusion/associative_memory_vec.c $(abs_top_srcdir)/fusion/vec_computeNgram.c $(wildcard $(abs_top_srcdir)/fusion/*.S)
+FUSION_FUNCS = $(abs_top_srcdir)/fusion/fusion_funcs.c $(abs_top_srcdir)/fusion/associative_memory_vec.c $(abs_top_srcdir)/fusion/vec_computeNgram.c $(abs_top_srcdir)/fusion/vec_hamming_distance.c $(wildcard $(abs_top_srcdir)/fusion/*.S)
 
 CFLAGS := $(CFLAGS) \
 	-DPREALLOCATE=1 \

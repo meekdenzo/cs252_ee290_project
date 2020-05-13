@@ -1,10 +1,10 @@
 #include <stdio.h>
 #include <stdint.h>
 #include <string.h>
-#include "associative_memory.h"
+//#include "associative_memory.h"
 #include "associative_memory_vec.h"
 #include "fusion_funcs.h"
-#include "fusion_funcs_vec.h"
+//#include "fusion_funcs_vec.h"
 #include "vec_majority_3.h"
 #include "init.h"
 #include "util.h"
@@ -93,7 +93,7 @@ int main(){
         #endif
  
 	    //classifies the new N-gram through the Associative Memory matrix.
-        class = associative_memory_64bit(q[0], aM);
+        class = associative_memory_64bit_vec(q[0], aM);
 
         #if PROFILE == 1
             printf("Assoc. Mem. cycles: %llu\n", read_cycles() - assoc_start);
