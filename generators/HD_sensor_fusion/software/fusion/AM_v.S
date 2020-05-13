@@ -3,7 +3,7 @@
 .text
 
 .globl hamming_v
-#.globl xor_ngram_v
+.globl popcount_v
 
 
 #
