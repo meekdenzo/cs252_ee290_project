@@ -3,6 +3,8 @@
 #include <string.h>
 #include "init.h"
 #include "fusion_funcs.h"
+#include "util.h"
+#include "vec-util.h"
 
 #define ROUND(num) ((num - floorf(num) > 0.5f) ? ceilf(num) : floorf(num))
 
@@ -30,9 +32,7 @@ int min_dist_hamm(int distances[classes]){
 
 			min = distances[i];
 			min_index = i;
-
 		}
-
 	}
 
 	return min_index;
@@ -40,7 +40,7 @@ int min_dist_hamm(int distances[classes]){
 
 
 
-void hamming_dist(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], int sims[classes]){
+void hamming_dist_vec(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], int sims[classes]){
 /**************************************************************************
 	DESCRIPTION: computes the Hamming Distance for each class.
 
@@ -53,18 +53,30 @@ void hamming_dist(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], int sims[
 ***************************************************************************/
 
 	int r_tmp = 0;
+    void * AM_addr;
+    uint64_t tmp = 0;
+    int consumed;
+    //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
+    asm volatile ("vsetcfg %0" : : "r" (VCFG(2, 0, 0, 1)));
+    uint64_t one = 0x1ULL;
+    asm volatile ("vmcs vs1, %0" : : "r" (one));
 
-	uint64_t tmp = 0;
-	for(int i = 0; i < classes; i++){
-		for(int j = 0; j < bit_dim + 1; j++){
-
-			tmp = q[j] ^ aM[i][j];
-
-			r_tmp += numberOfSetBits(tmp);
-		}
-		sims[i] = r_tmp;
-		r_tmp = 0;
-	}
+    for(int i = 0; i < classes; i++){
+        for(int j = 0; j < bit_dim+1; ){
+            asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
+            asm volatile ("vmca va0, %0" : : "r" (aM[i][j]));
+            asm volatile ("vmca va1, %0" : : "r" (q[j]));
+            asm volatile ("vmca va2, %0" : : "r" (tmp));
+            asm volatile ("la %0, AM_v" : "=r" (AM_addr));
+            asm volatile ("vf 0(%0)" : : "r" (AM_addr));
+            //tmp = q[j] ^ aM[i][j];
+            j += consumed;
+        }
+        r_tmp += numberOfSetBits(tmp);
+        sims[i] = r_tmp;
+        r_tmp = 0;
+    }
+	
 }
 
 void computeNgram(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit_dim + 1], uint64_t projM_pos[][bit_dim + 1], uint64_t projM_neg[][bit_dim + 1], uint64_t query[bit_dim + 1]){
