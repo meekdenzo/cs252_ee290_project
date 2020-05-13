@@ -35,7 +35,7 @@ int main(){
         }
     }
     #if PROFILE == 1
-        printf("Temporal cycles: %llu\n", read_cycles() - temporal_start);
+        printf("Temporal cycles cpu: %llu\n", read_cycles() - temporal_start);
         temporal_start = read_cycles();
     #endif
     //}
@@ -60,7 +60,7 @@ int main(){
     }
     
     #if PROFILE == 1
-        printf("Temporal cycles: %llu\n", read_cycles() - temporal_start);
+        printf("Temporal cycles Hwacha: %llu\n", read_cycles() - temporal_start);
     #endif
 
     return 0; 
