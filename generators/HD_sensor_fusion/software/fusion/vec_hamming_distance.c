@@ -25,7 +25,7 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     int consumed;
     uint64_t i;
     //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
-    asm volatile ("vsetcfg %0" : : "r" (VCFG(2, 0, 0, 1)));
+    asm volatile ("vsetcfg %0" : : "r" (VCFG(3, 0, 0, 1)));
 
     //constants
     uint64_t const1 = 0x1ULL;
@@ -37,6 +37,13 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     uint64_t const7 = 0x0101010101010101;
     uint64_t const8 = 0x38ULL;
     asm volatile ("vmcs vs1, %0" : : "r" (const1));
+    asm volatile ("vmcs vs2, %0" : : "r" (const2));
+    asm volatile ("vmcs vs3, %0" : : "r" (const3));
+    asm volatile ("vmcs vs4, %0" : : "r" (const4));
+    asm volatile ("vmcs vs5, %0" : : "r" (const5));
+    asm volatile ("vmcs vs6, %0" : : "r" (const6));
+    asm volatile ("vmcs vs7, %0" : : "r" (const7));
+    asm volatile ("vmcs vs8, %0" : : "r" (const8));
 
 
     for(int y = 0; y < classes; y++){
@@ -49,16 +56,20 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
             asm volatile ("vf 0(%0)" : : "r" (hamming_addr));
             j += consumed;
         }
-        for(int j = 0; j < bit_dim+1; j++){
+        for(int j = 0; j < bit_dim+1; ){
             asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
-            i = tmp[j];
-            i = i - ((i >> const1) & const2);
-            i = (i & const3) + ((i >> const4) & const3);
-            r_tmp += ((((i + (i >> const5)) & const6) * const7) >> const8);
-            //asm volatile ("la %0, popcount_v" : "=r" (popcount_addr));
-            //asm volatile ("vf 0(%0)" : : "r" (popcount_addr));
-            //j += consumed;
+            //i = tmp[j];
+            //i = i - ((i >> const1) & const2);
+            //i = (i & const3) + ((i >> const4) & const3);
+            asm volatile ("vmca va2, %0" : : "r" (&tmp[j]));
+            asm volatile ("la %0, popcount_v" : "=r" (popcount_addr));
+            asm volatile ("vf 0(%0)" : : "r" (popcount_addr));
+            j += consumed;
         }
+        for(int j = 0; j < bit_dim+1; j++){
+            r_tmp += ((tmp[j] * const7) >> const8);
+        }
+
         sims[y] = r_tmp;
         r_tmp = 0;
     }
