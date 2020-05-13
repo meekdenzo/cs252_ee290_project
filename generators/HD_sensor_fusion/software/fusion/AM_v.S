@@ -27,9 +27,9 @@ popcount_v:
 	vand vv1, vv0, vs3		# vv1 = (i & const3)
 	vsrl vv2, vv0, vs4		# vv2 = (i >> const4)
 	vand vv2, vv2, vs3		# vv2 = ((i >> const4) & const3)
-	vaddu vv0, vv1, vv2		# i = (i & const3) + ((i >> const4) & const3)
+	vadd vv0, vv1, vv2		# i = (i & const3) + ((i >> const4) & const3)
 	vsrl vv1, vv0, vs5		# vv1 = (i >> const5)
-	vaddu vv0, vv0, vv1		# i = (i & const5) + i
+	vadd vv0, vv0, vv1		# i = (i & const5) + i
 	vand vv0, vv0, vs6		# vv0 = ((i >> const4) & const6)
 	vsd vv0, va2			# vv0 = tmp[j]
 	vstop
