@@ -36,7 +36,7 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     uint64_t const6 = 0x0F0F0F0F0F0F0F0F;
     uint64_t const7 = 0x0101010101010101;
     uint64_t const8 = 0x38ULL;
-    asm volatile ("vmcs vs1, %0" : : "r" (one));
+    asm volatile ("vmcs vs1, %0" : : "r" (const1));
 
 
     for(int y = 0; y < classes; y++){
