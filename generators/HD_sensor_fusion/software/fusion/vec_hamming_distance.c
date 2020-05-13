@@ -30,9 +30,9 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     for(int i = 0; i < classes; i++){
         for(int j = 0; j < bit_dim+1; ){
             asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
-            asm volatile ("vmca va0, %0" : : "r" (aM[i][j]));
-            asm volatile ("vmca va1, %0" : : "r" (q[j]));
-            asm volatile ("vmca va2, %0" : : "r" (tmp[j]));
+            asm volatile ("vmca va0, %0" : : "r" (&aM[i][j]));
+            asm volatile ("vmca va1, %0" : : "r" (&q[j]));
+            asm volatile ("vmca va2, %0" : : "r" (&tmp[j]));
             printf("hellooooo\n");
             asm volatile ("la %0, AM_v" : "=r" (AM_addr));
             asm volatile ("vf 0(%0)" : : "r" (AM_addr));
