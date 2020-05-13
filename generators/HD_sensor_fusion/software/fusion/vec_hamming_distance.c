@@ -23,6 +23,7 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     void * popcount_addr;
     uint64_t tmp[bit_dim + 1];
     int consumed;
+    uint64_t i;
     //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
     asm volatile ("vsetcfg %0" : : "r" (VCFG(2, 0, 0, 1)));
 
@@ -32,10 +33,10 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     asm volatile ("vmcs vs1, %0" : : "r" (one));
 
 
-    for(int i = 0; i < classes; i++){
+    for(int y = 0; y < classes; y++){
         for(int j = 0; j < bit_dim+1; ){
             asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
-            asm volatile ("vmca va0, %0" : : "r" (&aM[i][j]));
+            asm volatile ("vmca va0, %0" : : "r" (&aM[y][j]));
             asm volatile ("vmca va1, %0" : : "r" (&q[j]));
             asm volatile ("vmca va2, %0" : : "r" (&tmp[j]));
             asm volatile ("la %0, hamming_v" : "=r" (hamming_addr));
@@ -46,11 +47,11 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
             i = tmp[j];
             i = i - ((i >> 1) & 0x5555555555555555);
             i = (i & 0x3333333333333333) + ((i >> 2) & 0x3333333333333333);
-            r_tmp += (((i + (i >> 4)) & 0x0F0F0F0F0F0F0F0F) * 0x0101010101010101) >> 56;
+            r_tmp += ((((i + (i >> 4)) & 0x0F0F0F0F0F0F0F0F) * 0x0101010101010101) >> 56);
             //asm volatile ("la %0, popcount_v" : "=r" (popcount_addr));
             //asm volatile ("vf 0(%0)" : : "r" (popcount_addr));
         }
-        sims[i] = r_tmp;
+        sims[y] = r_tmp;
         r_tmp = 0;
     }
 
