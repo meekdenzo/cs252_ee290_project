@@ -1,6 +1,6 @@
 include $(abs_top_srcdir)/Makefrag
 
-tests = main main_vec spatial vec_xor vec_majority_3 
+tests = main main_vec spatial vec_xor vec_majority_3 temporal
 
 tests_baremetal = $(tests:=-baremetal)
 ifdef BAREMETAL_ONLY
