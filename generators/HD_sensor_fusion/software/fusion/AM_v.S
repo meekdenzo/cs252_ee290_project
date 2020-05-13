@@ -2,14 +2,23 @@
 
 .text
 
-.globl AM_v
+.globl hamming_v
 #.globl xor_ngram_v
 
 
 #
 
 .align 3
-AM_v:
+hamming_v:
+	vpset vp0
+	vld vv0, va0			# vv0 = aM[i][j]
+	vld vv1, va1			# vv1 = q[j]
+	vxor vv0, vv0, vv1		# vv3 = permuted(q[0]) ^ q[1]
+	vsd vv0, va2			# write vv0 into tmp
+	vstop
+
+.align 3
+popcount_v:
 	vpset vp0
 	vld vv0, va0			# vv0 = aM[i][j]
 	vld vv1, va1			# vv1 = q[j]
