@@ -3,6 +3,8 @@
 #include <string.h>
 #include "init.h"
 #include "fusion_funcs.h"
+#include "util.h"
+#include "vec-util.h"
 
 #define ROUND(num) ((num - floorf(num) > 0.5f) ? ceilf(num) : floorf(num))
 
@@ -53,6 +55,7 @@ void hamming_dist(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], int sims[
 	int r_tmp = 0;
     void * AM_addr;
     uint64_t tmp = 0;
+    int consumed;
     //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
     asm volatile ("vsetcfg %0" : : "r" (VCFG(2, 0, 0, 1)));
     uint64_t one = 0x1ULL;
