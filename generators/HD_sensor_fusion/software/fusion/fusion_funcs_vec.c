@@ -8,7 +8,7 @@
 
 #define ROUND(num) ((num - floorf(num) > 0.5f) ? ceilf(num) : floorf(num))
 
-uint64_t read_cycles() {
+uint64_t read_cycles_vec() {
     uint64_t cycles;
     asm volatile ("rdcycle %0" : "=r" (cycles));
     return cycles;

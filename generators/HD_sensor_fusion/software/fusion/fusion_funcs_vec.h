@@ -3,11 +3,11 @@
  
 #include "init.h"
 
-uint64_t read_cycles();
+uint64_t read_cycles_vec();
 void hamming_dist_vec(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], int sims[classes]);
-int min_dist_hamm(int distances[classes]);
-void computeNgram(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit_dim + 1], uint64_t projM_pos[][bit_dim + 1], uint64_t projM_neg[][bit_dim + 1], uint64_t query[bit_dim + 1]);
-int numberOfSetBits(uint64_t i);
+int min_dist_hamm_vec(int distances[classes]);
+void computeNgram_vec(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit_dim + 1], uint64_t projM_pos[][bit_dim + 1], uint64_t projM_neg[][bit_dim + 1], uint64_t query[bit_dim + 1]);
+int numberOfSetBits_vec(uint64_t i);
 
 static int verifyuint64_t(int n, uint64_t* test, uint64_t* verify) {
     int i;
