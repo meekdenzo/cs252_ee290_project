@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <string.h>
 #include "associative_memory.h"
-#include "associative_memory_vec.h"
+//#include "associative_memory_vec.h"
 #include "fusion_funcs.h"
 //#include "fusion_funcs_vec.h"
 #include "vec_majority_3.h"

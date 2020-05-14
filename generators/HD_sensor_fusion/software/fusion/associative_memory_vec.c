@@ -1,4 +1,4 @@
-#include "associative_memory.h"
+#include "associative_memory_vec.h"
 #include "fusion_funcs.h"
 //#include "fusion_funcs_vec.h"
 
