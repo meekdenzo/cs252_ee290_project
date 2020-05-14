@@ -14,7 +14,7 @@ fi
 
 cd build
 
-if [[ $(which riscv64-unknown-linux-gnu-gcc) ]] ; then
+if [[ $(which riscv32-unknown-linux-gnu-gcc) ]] ; then
     make -j
 else
     make -j BAREMETAL_ONLY=1
