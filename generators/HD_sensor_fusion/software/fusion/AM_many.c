@@ -14,9 +14,9 @@
 
 int main(){
     //initialize
-    int N = 10;
+    int cycle = 10;
     int class;
-    uint64_t q[2*N][bit_dim + 1];
+    uint64_t q[2*cycle][bit_dim + 1];
     for (int x=0; x<(2*N); x++) {
         for (int y=0; y<bit_dim+1; y++){
             q[x][y] = projM_pos_GSR[x][y];
@@ -26,7 +26,7 @@ int main(){
     #if PROFILE == 1
         uint64_t AM_start = read_cycles();
     #endif
-    for (int x=0; x<N; x++) {
+    for (int x=0; x<cycle; x++) {
         class = associative_memory_64bit(q[x], aM);
         printf("%d\n", x);
     }
@@ -37,7 +37,7 @@ int main(){
     //}
 
     //Hwacha associative memory
-    for (int y=x; y<(2*N); y++) {
+    for (int y=cycle; y<(2*cycle); y++) {
         class = associative_memory_64bit_vec(q[x], aM);
         printf("%d\n", y);
     }
