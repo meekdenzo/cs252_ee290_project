@@ -23,6 +23,7 @@ void computeNgram(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit
     #endif
 
     uint64_t chHV, chHV2;
+    uint64_t chHV[channels];
 
     int cntr_init = (1 << (cntr_bits-1)) - (channels+1)/2 - 1;
     uint64_t cntr[cntr_bits];
@@ -51,7 +52,7 @@ void computeNgram(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit
             } else {
                 // slight hit if we don't check against 0 exactly also
                 //chHV = buffer[j] == 0.0 ? iM[j][i] : (iM[j][i] ^ (buffer[j] > 0.0 ? projM_pos[j][i] : projM_neg[j][i]));
-                chHV = iM[j][i] ^ (buffer[j] >= 0.0 ? projM_pos[j][i] : projM_neg[j][i]);
+                chHV[j] = iM[j][i] ^ (buffer[j] >= 0.0 ? projM_pos[j][i] : projM_neg[j][i]);
             }
             if(j == 1) chHV2 = chHV;
 
