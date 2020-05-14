@@ -22,7 +22,7 @@ void computeNgram(int channels, int cntr_bits, float buffer[], uint64_t iM[][bit
         uint64_t cpu_start = read_cycles();
     #endif
 
-    uint64_t chHV, chHV2;
+    uint64_t chHV2;
     uint64_t chHV[channels+1][bit_dim + 1];
 
     int cntr_init = (1 << (cntr_bits-1)) - (channels+1)/2 - 1;
