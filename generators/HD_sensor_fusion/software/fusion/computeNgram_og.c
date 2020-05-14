@@ -23,7 +23,7 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
     #endif
 
     uint64_t chHV2;
-    uint64_t chHV[channels+1][bit_dim + 1];
+    uint64_t chHV[bit_dim + 1];
 
     //int cntr_init = (1 << (cntr_bits-1)) - (channels+1)/2 - 1;
     //uint64_t cntr[cntr_bits];
@@ -48,14 +48,14 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
 
             // calc chHV
             if(j == channels) {
-                chHV[j][i] ^= chHV2;
+                chHV[i] ^= chHV2;
             } else {
                 // slight hit if we don't check against 0 exactly also
                 //chHV = buffer[j] == 0.0 ? iM[j][i] : (iM[j][i] ^ (buffer[j] > 0.0 ? projM_pos[j][i] : projM_neg[j][i]));
-                chHV[j][i] = iM[j][i] ^ (buffer[j] >= 0.0 ? projM_pos[j][i] : projM_neg[j][i]);
+                chHV[i] = iM[j][i] ^ (buffer[j] >= 0.0 ? projM_pos[j][i] : projM_neg[j][i]);
             }
 
-            if(j == 1) chHV2 = chHV[j][i];
+            if(j == 1) chHV2 = chHV[i];
 
             // incremental popcount
             //carry = cntr[0] & chHV;
@@ -74,7 +74,7 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
 
             for(int j = 0 ; j < channels + 1; j++){
 
-                majority = majority | (((chHV[j][i] & ( 1 << z)) >> z) << j);
+                majority = majority | (((chHV[i] & ( 1 << z)) >> z) << j);
 
             }
             if (numberOfSetBits(majority) > (channels/2)) query[i] = query[i] | ( 1 << z ) ;
