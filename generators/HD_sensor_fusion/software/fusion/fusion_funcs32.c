@@ -60,7 +60,7 @@ void hamming_dist32(uint32_t q[bit_dim + 1], uint32_t aM[][bit_dim + 1], int sim
 
 			tmp = q[j] ^ aM[i][j];
 
-			r_tmp += numberOfSetBits(tmp);
+			r_tmp += numberOfSetBits32(tmp);
 		}
 		sims[i] = r_tmp;
 		r_tmp = 0;

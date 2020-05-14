@@ -8,6 +8,7 @@
 //using the function "data_file_creator.m"
 #include "data.h"
 #include "mems_early.h"
+#include "mems_early32.h"
 //#include "mems_late.h"
 
 int main(){
