@@ -12,6 +12,7 @@ uint32_t read_cycles32() {
     return cycles;
 }
 
+
 int min_dist_hamm32(int distances[classes]){
 /*************************************************************************
 	DESCRIPTION: computes the minimum Hamming Distance.
