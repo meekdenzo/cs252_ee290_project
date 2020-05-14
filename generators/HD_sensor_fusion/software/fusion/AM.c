@@ -3,6 +3,8 @@
 #include <string.h>
 #include "util.h"
 #include "fusion_funcs.h"
+#include "associative_memory.h"
+#include "associative_memory_vec.h"
 #include "init.h"
 #include "vec-util.h"
 //the data.h and mems_<early/late>.h file can be created directly in MATLAB (after the simulation)
@@ -12,6 +14,7 @@
 
 int main(){
     //initialize
+    int class;
     uint64_t q[bit_dim + 1];
     for (int y=0; y<bit_dim+1; y++){
         q[y] = projM_pos_GSR[y];
@@ -28,9 +31,7 @@ int main(){
     //}
 
     //Hwacha associative memory
-
     class = associative_memory_64bit_vec(q, aM);
-    
     #if PROFILE == 1
         printf("AM cycles Hwacha: %llu\n", read_cycles() - AM_start);
     #endif
