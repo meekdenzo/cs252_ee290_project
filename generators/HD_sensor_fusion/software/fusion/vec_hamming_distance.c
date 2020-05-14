@@ -25,6 +25,7 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     uint64_t tmp0[bit_dim + 1];
     uint64_t tmp1[bit_dim + 1];
     int consumed;
+    int count=0;
     uint64_t i;
     //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
     asm volatile ("vsetcfg %0" : : "r" (VCFG(3, 0, 0, 1)));
@@ -65,10 +66,13 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
             j += consumed;
         }
         for(int j = 0; j < bit_dim+1; j++){
+            if (tmp0[j] == r_tmp1[j]) {
+                count += 1;
+            }
             r_tmp0 += tmp0[j];
             r_tmp1 += tmp1[j];
         }
-
+        printf("%d\n", count);
         sims[0] = r_tmp0;
         sims[1] = r_tmp1;
     //}
