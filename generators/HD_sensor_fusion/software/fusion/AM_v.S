@@ -3,7 +3,6 @@
 .text
 
 .globl hamming_v
-.globl popcount_v
 
 
 #
@@ -43,8 +42,3 @@ hamming_v:
 	vsrl vv0, vv0, vs8		# vv0 = (((i >> const4) & const6) * const7) >> const8
 	vsd vv0, va3			# vv0 = tmp1[j]
 	vstop
-
-	#vsrl vv0, vv0, vs1		# permute: q[0] >> 1, logical fill w/0s every 64 bits
-	#vsrl vv0, vv0, vs1		# permute: q[0] >> 1, logical fill w/0s every 64 bits
-	#vxor vv0, vv0, vv2		# vv3 = permuted(q[0]) ^ q[2]
-	#vsd vv0, va0			# write vv3 into q[0]

@@ -21,13 +21,10 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     int r_tmp0=0;
     int r_tmp1=0;
     void * hamming_addr;
-    void * popcount_addr;
     uint64_t tmp0[bit_dim + 1];
     uint64_t tmp1[bit_dim + 1];
     int consumed;
-    int count=0;
-    uint64_t i;
-    //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
+
     asm volatile ("vsetcfg %0" : : "r" (VCFG(4, 0, 0, 1)));
 
     //constants
@@ -49,42 +46,23 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     asm volatile ("vmcs vs8, %0" : : "r" (const8));
 
 
-    //for(int y = 0; y < classes; y++){
-        for(int j = 0; j < bit_dim+1; ){
-            asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
-            asm volatile ("vmca va0, %0" : : "r" (&aM[0][j]));
-            asm volatile ("vmca va1, %0" : : "r" (&q[j]));
-            asm volatile ("vmca va2, %0" : : "r" (&tmp0[j]));
-            asm volatile ("vmca va3, %0" : : "r" (&tmp1[j]));
-            asm volatile ("vmca va4, %0" : : "r" (&aM[1][j]));
-            asm volatile ("la %0, hamming_v" : "=r" (hamming_addr));
-            asm volatile ("vf 0(%0)" : : "r" (hamming_addr));
-            //asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
-            //asm volatile ("vmca va2, %0" : : "r" (&tmp[j]));
-            //asm volatile ("la %0, popcount_v" : "=r" (popcount_addr));
-            //asm volatile ("vf 0(%0)" : : "r" (popcount_addr));
-            j += consumed;
-        }
-        for(int j = 0; j < bit_dim+1; j++){
-            r_tmp0 += tmp0[j];
-            r_tmp1 += tmp1[j];
-        }
-        sims[0] = r_tmp0;
-        sims[1] = r_tmp1;
-    //}
+    for(int j = 0; j < bit_dim+1; ){
+        asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
+        asm volatile ("vmca va0, %0" : : "r" (&aM[0][j]));
+        asm volatile ("vmca va1, %0" : : "r" (&q[j]));
+        asm volatile ("vmca va2, %0" : : "r" (&tmp0[j]));
+        asm volatile ("vmca va3, %0" : : "r" (&tmp1[j]));
+        asm volatile ("vmca va4, %0" : : "r" (&aM[1][j]));
+        asm volatile ("la %0, hamming_v" : "=r" (hamming_addr));
+        asm volatile ("vf 0(%0)" : : "r" (hamming_addr));
+        j += consumed;
+    }
+    for(int j = 0; j < bit_dim+1; j++){
+        r_tmp0 += tmp0[j];
+        r_tmp1 += tmp1[j];
+    }
+    sims[0] = r_tmp0;
+    sims[1] = r_tmp1;
 
-    //int r_tmp = 0;
-
-    //uint64_t tmp = 0;
-    //for(int i = 0; i < classes; i++){
-    //    for(int j = 0; j < bit_dim + 1; j++){
-
-    //        tmp = q[j] ^ aM[i][j];
-
-    //        r_tmp += numberOfSetBits(tmp);
-    //    }
-    //    sims[i] = r_tmp;
-    //    r_tmp = 0;
-    //}
 }
 
