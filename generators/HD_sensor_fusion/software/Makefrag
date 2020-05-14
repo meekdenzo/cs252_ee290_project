@@ -1,4 +1,4 @@
-XLEN ?= 64
+XLEN ?= 32
 
 CC_BAREMETAL := riscv$(XLEN)-unknown-elf-gcc
 
