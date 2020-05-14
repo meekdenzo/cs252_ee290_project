@@ -14,7 +14,7 @@
 int main(){
  
     //float buffer[channels_EEG];
-    uint64_t q[N][bit_dim + 1];
+    uint64_t q[3*N][bit_dim + 1];
 	//uint64_t q_cpu[bit_dim + 1], q_hwacha[bit_dim+1];
     for(int z = 0; z < N; z++){
         for (int y=0; y<bit_dim+1; y++){
@@ -64,6 +64,11 @@ int main(){
     //}
 
     //Hwacha temporal encoder
+    for(int z = 2*N; z < N*3; z++){
+        for (int y=0; y<bit_dim+1; y++){
+            q[z][y] = projM_pos_GSR[z][y];
+        }
+    }
 
     //temporal encode hardcoded for N=3
     void * ngram_bind_addr;
