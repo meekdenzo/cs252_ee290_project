@@ -18,7 +18,7 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
         sims     : Distances' vector
 ***************************************************************************/
 
-    int r_tmp = 0;
+    int r_tmp;
     void * hamming_addr;
     void * popcount_addr;
     uint64_t tmp[bit_dim + 1];
@@ -63,11 +63,12 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
             //i = (i & const3) + ((i >> const4) & const3);
             asm volatile ("vmca va2, %0" : : "r" (&tmp[j]));
             asm volatile ("la %0, popcount_v" : "=r" (popcount_addr));
+            //NEED TO LOAD 0 INTO r_tmp
             asm volatile ("vf 0(%0)" : : "r" (popcount_addr));
             j += consumed;
         }
         for(int j = 0; j < bit_dim+1; j++){
-            r_tmp += ((tmp[j] * const7) >> const8);
+            r_tmp += tmp[j];
         }
 
         sims[y] = r_tmp;
