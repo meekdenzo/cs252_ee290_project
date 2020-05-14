@@ -22,7 +22,7 @@ CFLAGS := $(CFLAGS) \
 	-fno-common \
 	-fno-builtin-printf \
 	-march=rv32gc \
-	-mabi=ilp32 \
+	-mabi=ilp32f \
 	-lm \
 	-lgcc \
 	-I$(abs_top_srcdir)/esp-tests \
