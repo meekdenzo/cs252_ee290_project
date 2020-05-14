@@ -7,7 +7,7 @@
 //the data.h and mems_<early/late>.h file can be created directly in MATLAB (after the simulation)
 //using the function "data_file_creator.m"
 #include "data.h"
-#include "mems_early.h"
+//#include "mems_early.h"
 #include "mems_early_32.h"
 //#include "mems_late.h"
 
