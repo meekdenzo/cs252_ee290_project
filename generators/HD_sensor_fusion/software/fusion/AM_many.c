@@ -38,7 +38,7 @@ int main(){
 
     //Hwacha associative memory
     for (int y=cycle; y<(2*cycle); y++) {
-        class = associative_memory_64bit_vec(q[x], aM);
+        class = associative_memory_64bit_vec(q[y], aM);
         printf("%d\n", y);
     }
     #if PROFILE == 1
