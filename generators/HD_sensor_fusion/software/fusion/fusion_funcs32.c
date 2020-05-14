@@ -80,7 +80,7 @@ void computeNgram32(int channels, int cntr_bits, float buffer[], uint32_t iM[][b
 **************************************************************************/
 
     #if PROFILE == 1
-        uint32_t cpu_start = read_cycles();
+        uint32_t cpu_start = read_cycles32();
     #endif
 
     uint32_t chHV, chHV2;
@@ -100,7 +100,7 @@ void computeNgram32(int channels, int cntr_bits, float buffer[], uint32_t iM[][b
             if ((cntr_init  & (1 << n)) == 0) {
                 cntr[n] = 0;
             } else {
-                cntr[n] = 0xFFFFFFFFFFFFFFFFULL;
+                //cntr[n] = 0xFFFFFFFFFFFFFFFFULL;
             }
         }
 
@@ -131,7 +131,7 @@ void computeNgram32(int channels, int cntr_bits, float buffer[], uint32_t iM[][b
 	}
 
     #if PROFILE == 1
-        printf("spatial encoding cycles: %llu\n", read_cycles() - cpu_start);
+        printf("spatial encoding cycles: %llu\n", read_cycles32() - cpu_start);
     #endif
 
 }

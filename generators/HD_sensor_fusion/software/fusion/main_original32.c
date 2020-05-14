@@ -35,13 +35,13 @@ int main(){
     //spatially encode first N samples
 	for(int z = 0; z < N; z++){
         memcpy(buffer, TEST_SET_GSR[z], sizeof(TEST_SET_GSR[z]));
-        computeNgram_og32(channels_GSR, cntr_bits_GSR, buffer, iM_EEG, projM_pos_GSR, projM_neg_GSR, q_GSR);
+        computeNgram_og32(channels_GSR, cntr_bits_GSR, buffer, iM32_EEG, projM32_pos_GSR, projM32_neg_GSR, q_GSR);
 
         memcpy(buffer, TEST_SET_ECG[z], sizeof(TEST_SET_ECG[z]));
-        computeNgram_og32(channels_ECG, cntr_bits_ECG, buffer, iM_EEG, projM_pos_ECG, projM_neg_ECG, q_ECG);
+        computeNgram_og32(channels_ECG, cntr_bits_ECG, buffer, iM32_EEG, projM32_pos_ECG, projM32_neg_ECG, q_ECG);
 
         memcpy(buffer, TEST_SET_EEG[z], sizeof(TEST_SET_EEG[z]));
-        computeNgram_og32(channels_EEG, cntr_bits_EEG, buffer, iM_EEG, projM_pos_EEG, projM_neg_EEG, q_EEG);
+        computeNgram_og32(channels_EEG, cntr_bits_EEG, buffer, iM32_EEG, projM32_pos_EEG, projM32_neg_EEG, q_EEG);
         //printf("YAYendof1\n");
         //majority
         for (int b = bit_dim; b >= 0; b--) {
@@ -109,10 +109,10 @@ int main(){
         #endif
  
 	    //classifies the new N-gram through the Associative Memory matrix.
-        class = associative_memory_32bit(q[0], aM);
+        class = associative_memory_32bit(q[0], aM32);
 
         #if PROFILE == 1
-            printf("Assoc. Mem. cycles: %llu\n", read_cycle32() - assoc_start);
+            printf("Assoc. Mem. cycles: %llu\n", read_cycles32() - assoc_start);
         #endif
 
         if (class == labels[ix]) correct++;
@@ -130,11 +130,11 @@ int main(){
             #if N > 1
             for(int z = 0; z < N; z++) {
                 memcpy(buffer, TEST_SET_GSR[ix+z+1], sizeof(TEST_SET_GSR[ix+z+1]));
-                computeNgram_og32(channels_GSR, cntr_bits_GSR, buffer, iM_EEG, projM_pos_GSR, projM_neg_GSR, q_GSR);
+                computeNgram_og32(channels_GSR, cntr_bits_GSR, buffer, iM32_EEG, projM32_pos_GSR, projM32_neg_GSR, q_GSR);
                 memcpy(buffer, TEST_SET_ECG[ix+z+1], sizeof(TEST_SET_ECG[ix+z+1]));
-                computeNgram_og32(channels_ECG, cntr_bits_ECG, buffer, iM_EEG, projM_pos_ECG, projM_neg_ECG, q_ECG);
+                computeNgram_og32(channels_ECG, cntr_bits_ECG, buffer, iM32_EEG, projM32_pos_ECG, projM32_neg_ECG, q_ECG);
                 memcpy(buffer, TEST_SET_EEG[ix+z+1], sizeof(TEST_SET_EEG[ix+z+1]));
-                computeNgram_og32(channels_EEG, cntr_bits_EEG, buffer, iM_EEG, projM_pos_EEG, projM_neg_EEG, q_EEG);
+                computeNgram_og32(channels_EEG, cntr_bits_EEG, buffer, iM32_EEG, projM32_pos_EEG, projM32_neg_EEG, q_EEG);
                 for (int b = bit_dim; b >= 0; b--) {
                     q[z][b] = (q_GSR[b] & q_ECG[b]) | (q_ECG[b] & q_EEG[b]) | (q_EEG[b] & q_GSR[b]);
                 }   
