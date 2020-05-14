@@ -25,9 +25,9 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
     uint64_t chHV2;
     uint64_t chHV[channels+1][bit_dim + 1];
 
-    int cntr_init = (1 << (cntr_bits-1)) - (channels+1)/2 - 1;
-    uint64_t cntr[cntr_bits];
-    uint64_t temp, carry;
+    //int cntr_init = (1 << (cntr_bits-1)) - (channels+1)/2 - 1;
+    //uint64_t cntr[cntr_bits];
+    //uint64_t temp, carry;
 
     //Spatial Encoder: captures the spatial information for a given time-aligned samples of channels
     for(int i = 0; i < bit_dim + 1; i++){
@@ -36,13 +36,13 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
         //initialize counter to 2^(cntr_bits)/2 - channels/2
         //that way, the counter msb uint becomes the final query HV
 
-        for(int n = 0; n < cntr_bits; n++) {
-            if ((cntr_init  & (1 << n)) == 0) {
-                cntr[n] = 0;
-            } else {
-                cntr[n] = 0xFFFFFFFFFFFFFFFFULL;
-            }
-        }
+        //for(int n = 0; n < cntr_bits; n++) {
+            //if ((cntr_init  & (1 << n)) == 0) {
+            //    cntr[n] = 0;
+            //} else {
+            //    cntr[n] = 0xFFFFFFFFFFFFFFFFULL;
+            //}
+        //}
         printf("YAY\n");
         for(int j = 0; j < channels+1; j++) {
 

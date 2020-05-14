@@ -42,7 +42,7 @@ int main(){
 
         memcpy(buffer, TEST_SET_EEG[z], sizeof(TEST_SET_EEG[z]));
         computeNgram_og(channels_EEG, cntr_bits_EEG, buffer, iM_EEG, projM_pos_EEG, projM_neg_EEG, q_EEG);
-        printf("YAY\n");
+        printf("YAYendof1\n");
         //majority
         for (int b = bit_dim; b >= 0; b--) {
             q[z][b] = (q_GSR[b] & q_ECG[b]) | (q_ECG[b] & q_EEG[b]) | (q_EEG[b] & q_GSR[b]);
