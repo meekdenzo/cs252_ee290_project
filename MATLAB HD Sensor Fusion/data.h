@@ -2,7 +2,7 @@
 #define DATA_H_
 
 #include <stdio.h>
-#include "init.h"
+#include "init32.h"
 
 //GSR signals
 static const float TEST_SET_GSR[380][32] = {
