@@ -58,7 +58,7 @@ int main(){
         printf("Initial Spatial cycles: %llu\n", read_cycles() - spatial_start);
     #endif
 
-	for(int ix = 0; ix < NUMBER_OF_INPUT_SAMPLES-N+1; ix++){
+	for(int ix = 0; ix < 30-N+1; ix++){
 
         #if PROFILE == 1
             uint64_t temporal_start = read_cycles();

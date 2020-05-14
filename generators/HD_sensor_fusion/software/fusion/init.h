@@ -28,7 +28,7 @@
 #define sparsity 0.7
 //number of bits to shift by in temporal encoder
 //64b implementation will not do circular
-#define temporal_shift 64
+#define temporal_shift 1
 //profile cycles taken
 #define PROFILE 1
 
