@@ -21,7 +21,7 @@ int main(){
             q[z][y] = projM_pos_GSR[z][y];
         }
     }
-    //CPU temporal encoder
+    //CPU 64-bit shift temporal encoder
     #if PROFILE == 1
         uint64_t temporal_start = read_cycles();
     #endif
@@ -35,8 +35,31 @@ int main(){
         }
     }
     #if PROFILE == 1
-        printf("Temporal cycles cpu: %llu\n", read_cycles() - temporal_start);
-        temporal_start = read_cycles();
+        printf("Temporal cycles cpu 64 bit shift: %llu\n", read_cycles() - temporal_start);
+    #endif
+    //}
+
+    for(int z = N; z < N*2; z++){
+        for (int y=0; y<bit_dim+1; y++){
+            q[z][y] = projM_pos_GSR[z][y];
+        }
+    }
+    //CPU bit shift temporal encoder
+    #if PROFILE == 1
+        uint64_t temporal_start = read_cycles();
+    #endif
+    //for(int ix = 0; ix < NUMBER_OF_INPUT_SAMPLES-N+1; ix++){
+    for(int z = N+1; z < 2*N; z++){
+        //Here the hypervector q[0] is shifted by 1 bits as permutation (no circularity),
+        //before performing the componentwise XOR operation with the new query (q[z]).
+        //Much more hardware optimal!
+        for(int b = bit_dim; b >= 0; b--){
+            q[0][i] = (q[0][i] >> 1);
+            q[0][i] = q[z][i] ^ q[0][i];
+        }
+    }
+    #if PROFILE == 1
+        printf("Temporal cycles cpu 1-bit shift: %llu\n", read_cycles() - temporal_start);
     #endif
     //}
 
@@ -49,11 +72,15 @@ int main(){
     asm volatile ("vmcs vs1, %0" : : "r" (one));
     int consumed; 
 
+    #if PROFILE == 1
+        uint64_t temporal_start = read_cycles();
+    #endif
+
     for(int b = 0; b < bit_dim+1; ){
         asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-b));
-        asm volatile ("vmca va0, %0" : : "r" (&q[0][b]));
-        asm volatile ("vmca va1, %0" : : "r" (&q[1][b]));
-        asm volatile ("vmca va2, %0" : : "r" (&q[2][b]));
+        asm volatile ("vmca va0, %0" : : "r" (&q[2*N][b]));
+        asm volatile ("vmca va1, %0" : : "r" (&q[2*N+1][b]));
+        asm volatile ("vmca va2, %0" : : "r" (&q[2*N+2][b]));
         asm volatile ("la %0, ngram_bind_v" : "=r" (ngram_bind_addr));
         asm volatile ("vf 0(%0)" : : "r" (ngram_bind_addr));
         b += consumed;
