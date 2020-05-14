@@ -41,6 +41,7 @@ int min_dist_hamm32(int distances[classes]){
 
 
 
+
 void hamming_dist32(uint32_t q[bit_dim + 1], uint32_t aM[][bit_dim + 1], int sims[classes]){
 /**************************************************************************
 	DESCRIPTION: computes the Hamming Distance for each class.
