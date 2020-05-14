@@ -1,6 +1,6 @@
 include $(abs_top_srcdir)/Makefrag
 
-tests = main main_vec spatial vec_xor vec_majority_3 temporal temporal_many AM AM_many main_original
+tests = main main_vec spatial vec_xor vec_majority_3 temporal temporal_many AM AM_many main_original main_original32
 
 tests_baremetal = $(tests:=-baremetal)
 ifdef BAREMETAL_ONLY
@@ -10,7 +10,7 @@ else
 endif
 
 BENCH_COMMON = $(abs_top_srcdir)/esp-tests/benchmarks/common
-FUSION_FUNCS = $(abs_top_srcdir)/fusion/fusion_funcs.c $(abs_top_srcdir)/fusion/computeNgram_og.c $(abs_top_srcdir)/fusion/associative_memory_vec.c $(abs_top_srcdir)/fusion/associative_memory.c $(abs_top_srcdir)/fusion/vec_computeNgram.c $(abs_top_srcdir)/fusion/vec_hamming_distance.c $(wildcard $(abs_top_srcdir)/fusion/*.S)
+FUSION_FUNCS = $(abs_top_srcdir)/fusion/fusion_funcs.c $(abs_top_srcdir)/fusion/fusion_funcs32.c $(abs_top_srcdir)/fusion/computeNgram_og.c $(abs_top_srcdir)/fusion/computeNgram_og32.c $(abs_top_srcdir)/fusion/associative_memory_vec.c $(abs_top_srcdir)/fusion/associative_memory.c $(abs_top_srcdir)/fusion/associative_memory32.c $(abs_top_srcdir)/fusion/vec_computeNgram.c $(abs_top_srcdir)/fusion/vec_hamming_distance.c $(wildcard $(abs_top_srcdir)/fusion/*.S)
 
 CFLAGS := $(CFLAGS) \
 	-DPREALLOCATE=1 \
