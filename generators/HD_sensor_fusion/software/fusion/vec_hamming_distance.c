@@ -18,10 +18,12 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
         sims     : Distances' vector
 ***************************************************************************/
 
-    int r_tmp;
+    int r_tmp0=0;
+    int r_tmp1=0;
     void * hamming_addr;
     void * popcount_addr;
-    uint64_t tmp[bit_dim + 1];
+    uint64_t tmp0[bit_dim + 1];
+    uint64_t tmp1[bit_dim + 1];
     int consumed;
     uint64_t i;
     //CHANGE NUMBER OF VECTOR REGISTERS NEEDED
@@ -46,12 +48,14 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
     asm volatile ("vmcs vs8, %0" : : "r" (const8));
 
 
-    for(int y = 0; y < classes; y++){
+    //for(int y = 0; y < classes; y++){
         for(int j = 0; j < bit_dim+1; ){
             asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
-            asm volatile ("vmca va0, %0" : : "r" (&aM[y][j]));
+            asm volatile ("vmca va0, %0" : : "r" (&aM[0][j]));
             asm volatile ("vmca va1, %0" : : "r" (&q[j]));
-            asm volatile ("vmca va2, %0" : : "r" (&tmp[j]));
+            asm volatile ("vmca va2, %0" : : "r" (&tmp0[j]));
+            asm volatile ("vmca va3, %0" : : "r" (&tmp1[j]));
+            asm volatile ("vmca va4, %0" : : "r" (&aM[1][j]));
             asm volatile ("la %0, hamming_v" : "=r" (hamming_addr));
             asm volatile ("vf 0(%0)" : : "r" (hamming_addr));
             //asm volatile ("vsetvl %0, %1" : "=r" (consumed) : "r" (bit_dim+1-j));
@@ -61,12 +65,13 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
             j += consumed;
         }
         for(int j = 0; j < bit_dim+1; j++){
-            r_tmp += tmp[j];
+            r_tmp0 += tmp0[j];
+            r_tmp1 += tmp1[j];
         }
 
-        sims[y] = r_tmp;
-        r_tmp = 0;
-    }
+        sims[0] = r_tmp0;
+        sims[1] = r_tmp1;
+    //}
 
     //int r_tmp = 0;
 
