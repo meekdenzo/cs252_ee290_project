@@ -17,7 +17,7 @@ int main(){
     int class;
     uint64_t q[bit_dim + 1];
     for (int y=0; y<bit_dim+1; y++){
-        q[y] = projM_pos_GSR[y];
+        q[y] = projM_pos_GSR[1][y];
     }
     //CPU associative memory
     #if PROFILE == 1
