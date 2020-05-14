@@ -46,7 +46,7 @@ int main(){
     }
     //CPU bit shift temporal encoder
     #if PROFILE == 1
-        uint64_t temporal_start = read_cycles();
+        temporal_start = read_cycles();
     #endif
     //for(int ix = 0; ix < NUMBER_OF_INPUT_SAMPLES-N+1; ix++){
     for(int z = N+1; z < 2*N; z++){
@@ -73,7 +73,7 @@ int main(){
     int consumed; 
 
     #if PROFILE == 1
-        uint64_t temporal_start = read_cycles();
+        temporal_start = read_cycles();
     #endif
 
     for(int b = 0; b < bit_dim+1; ){
