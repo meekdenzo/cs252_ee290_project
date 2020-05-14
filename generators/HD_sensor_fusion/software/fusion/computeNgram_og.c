@@ -54,7 +54,8 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
                 //chHV = buffer[j] == 0.0 ? iM[j][i] : (iM[j][i] ^ (buffer[j] > 0.0 ? projM_pos[j][i] : projM_neg[j][i]));
                 chHV[j][i] = iM[j][i] ^ (buffer[j] >= 0.0 ? projM_pos[j][i] : projM_neg[j][i]);
             }
-            if(j == 1) chHV2 = chHV[j];
+
+            if(j == 1) chHV2 = chHV[j][i];
 
             // incremental popcount
             //carry = cntr[0] & chHV;
