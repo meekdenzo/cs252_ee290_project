@@ -12,8 +12,8 @@
 hamming_v:
 	vpset vp0
 	vld vv0, va0			# vv0 = aM[0][j]
-	vld vv1, va1			# vv1 = q[j]
-	vxor vv0, vv0, vv1		# i = aM[0][j] ^ q[j]
+	vld vv3, va1			# vv1 = q[j]
+	vxor vv0, vv0, vv3		# i = aM[0][j] ^ q[j]
 	vsrl vv1, vv0, vs1		# vv1 = i >> 1
 	vand vv1, vv1, vs2		# vv1 = (i >> 1) & const5
 	vsub vv0, vv0, vv1		# i = i - (i >> 1) & const5
@@ -28,7 +28,7 @@ hamming_v:
 	vsrl vv0, vv0, vs8		# vv0 = (((i >> const4) & const6) * const7) >> const8
 	vsd vv0, va2			# vv0 = tmp0[j]
 	vld vv0, va4			# vv0 = aM[1][j]
-	vxor vv0, vv0, vv1		# i = aM[1][j] ^ q[j]
+	vxor vv0, vv0, vv3		# i = aM[1][j] ^ q[j]
 	vsrl vv1, vv0, vs1		# vv1 = i >> 1
 	vand vv1, vv1, vs2		# vv1 = (i >> 1) & const5
 	vsub vv0, vv0, vv1		# i = i - (i >> 1) & const5
