@@ -105,7 +105,7 @@ int main(){
  	        printf("Sample %d (predicted, golden) class: (%d, %d)\n", ix, class, labels[ix]);
         #endif
 
-        if (ix < NUMBER_OF_INPUT_SAMPLES-N) {
+        if (ix < 30-N) {
             //Move forward by updating q and spatially encoding ix+Nth sample
             #if PROFILE == 1
                 spatial_start = read_cycles();
