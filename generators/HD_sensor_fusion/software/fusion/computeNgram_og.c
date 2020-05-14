@@ -43,7 +43,7 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
             //    cntr[n] = 0xFFFFFFFFFFFFFFFFULL;
             //}
         //}
-        printf("YAY\n");
+        //printf("YAY\n");
         for(int j = 0; j < channels+1; j++) {
 
             // calc chHV
@@ -66,7 +66,7 @@ void computeNgram_og(int channels, int cntr_bits, float buffer[], uint64_t iM[][
             //    carry &= temp;
             //}
         }
-        printf("YAY2\n");
+        //printf("YAY2\n");
         uint64_t majority = 0;
         //componentwise majority: inserts the value of the i-th bit of each chHV row in the variable "majority"
         //and then computes the number of 1's with the function numberOfSetBits.

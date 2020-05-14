@@ -17,7 +17,7 @@
 #define channels_EEG 105
 #define cntr_bits_EEG 7
 //dimension of the hypervectors after compression (dimension/32 rounded to the smallest integer)
-#define bit_dim 156
+#define bit_dim 312
 //number of input samples
 #define NUMBER_OF_INPUT_SAMPLES 380
 //dimension of the N-grams (models for N = 3 are contained in data.h)

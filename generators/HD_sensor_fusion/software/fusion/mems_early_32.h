@@ -2,7 +2,7 @@
 #define MEM_EARLY_H_
 
 #include <stdio.h>
-#include "init.h"
+#include "init32.h"
 
 
 

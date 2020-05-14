@@ -1,8 +1,8 @@
 #include <string.h>
 #include "util.h"
 #include "fusion_funcs32.h"
-#include "init.h"
-#include "mems_early.h"
+#include "init32.h"
+#include "mems_early32.h"
 
 #include "vec-util.h"
 

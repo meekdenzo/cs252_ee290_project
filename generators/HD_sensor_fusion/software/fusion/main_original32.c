@@ -3,7 +3,7 @@
 #include <string.h>
 #include "associative_memory32.h"
 #include "fusion_funcs32.h"
-#include "init.h"
+#include "init32.h"
 //the data.h and mems_<early/late>.h file can be created directly in MATLAB (after the simulation)
 //using the function "data_file_creator.m"
 #include "data.h"

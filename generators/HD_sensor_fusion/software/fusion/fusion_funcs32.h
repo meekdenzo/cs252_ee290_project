@@ -1,7 +1,7 @@
 #ifndef FUSION_FUNCS_H_
 #define FUSION_FUNCS_H_
  
-#include "init.h"
+#include "init32.h"
 
 uint32_t read_cycles32();
 void hamming_dist32(uint32_t q[bit_dim + 1], uint32_t aM[][bit_dim + 1], int sims[classes]);
