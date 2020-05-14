@@ -2,7 +2,7 @@
 #include "util.h"
 #include "fusion_funcs32.h"
 #include "init32.h"
-#include "mems_early32.h"
+#include "mems_early_32.h"
 
 #include "vec-util.h"
 
