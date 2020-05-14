@@ -24,6 +24,7 @@ void computeNgram_og32(int channels, int cntr_bits, float buffer[], uint32_t iM[
 
     uint32_t chHV2;
     uint32_t chHV[bit_dim + 1];
+    
 
     //int cntr_init = (1 << (cntr_bits-1)) - (channels+1)/2 - 1;
     //uint64_t cntr[cntr_bits];
