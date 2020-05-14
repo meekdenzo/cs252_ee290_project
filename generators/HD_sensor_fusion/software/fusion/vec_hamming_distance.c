@@ -66,7 +66,7 @@ void vec_hamming_distance(uint64_t q[bit_dim + 1], uint64_t aM[][bit_dim + 1], i
             j += consumed;
         }
         for(int j = 0; j < bit_dim+1; j++){
-            if (tmp0[j] == r_tmp1[j]) {
+            if (tmp0[j] == tmp1[j]) {
                 count += 1;
             }
             r_tmp0 += tmp0[j];
