@@ -21,7 +21,7 @@ CFLAGS := $(CFLAGS) \
 	-ffast-math \
 	-fno-common \
 	-fno-builtin-printf \
-	-march=rv32gc -Wa, \
+	-march=rv32gc -Wl \
 	-mabi=ilp32f \
 	-lm \
 	-lgcc \
