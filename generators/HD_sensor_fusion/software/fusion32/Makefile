@@ -21,8 +21,7 @@ CFLAGS := $(CFLAGS) \
 	-ffast-math \
 	-fno-common \
 	-fno-builtin-printf \
-	-march=rv32gc -Wl \
-	-mabi=ilp32f \
+	-march=rv64gcxhwacha \
 	-lm \
 	-lgcc \
 	-I$(abs_top_srcdir)/esp-tests \
