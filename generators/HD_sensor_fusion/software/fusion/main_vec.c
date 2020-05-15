@@ -58,7 +58,7 @@ int main(){
         printf("Initial Spatial cycles: %llu\n", read_cycles() - spatial_start);
     #endif
 
-	for(int ix = 0; ix < 5-N+1; ix++){
+	for(int ix = 0; ix < NUMBER_OF_INPUT_SAMPLES-N+1; ix++){
 
         #if PROFILE == 1
             uint64_t temporal_start = read_cycles();
@@ -105,7 +105,7 @@ int main(){
  	        printf("Sample %d (predicted, golden) class: (%d, %d)\n", ix, class, labels[ix]);
         #endif
 
-        if (ix < 5-N) {
+        if (ix < NUMBER_OF_INPUT_SAMPLES-N) {
             //Move forward by updating q and spatially encoding ix+Nth sample
             #if PROFILE == 1
                 spatial_start = read_cycles();
