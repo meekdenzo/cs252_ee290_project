@@ -1,0 +1,76 @@
+Chronologic VCS simulator copyright 1991-2021
+Contains Synopsys proprietary information.
+Compiler version S-2021.09-SP1-1_Full64; Runtime version S-2021.09-SP1-1_Full64;  Jun  6 20:37 2022
+NOTE: automatic random seed used: 1583998817
+[UART] UART0 is here (stdin/stdout).
+
+spatial encoding cycles: 30762
+spatial encoding cycles: 76739
+spatial encoding cycles: 104568
+spatial encoding cycles: 27018
+spatial encoding cycles: 70709
+spatial encoding cycles: 94150
+spatial encoding cycles: 26082
+spatial encoding cycles: 68954
+spatial encoding cycles: 91944
+Initial Spatial cycles: 626043
+Temporal cycles: 92
+Assoc. Mem. cycles: 2552
+Sample 0 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25910
+spatial encoding cycles: 67997
+spatial encoding cycles: 91196
+Spatial update cycles: 198241
+Temporal cycles: 30
+Assoc. Mem. cycles: 2022
+Sample 1 (predicted, golden) class: (0, 0)
+spatial encoding cycles: 25488
+spatial encoding cycles: 67184
+spatial encoding cycles: 90626
+Spatial update cycles: 196153
+Temporal cycles: 30
+Assoc. Mem. cycles: 1903
+Sample 2 (predicted, golden) class: (0, 0)
+spatial encoding cycles: 25507
+spatial encoding cycles: 66963
+spatial encoding cycles: 90108
+Spatial update cycles: 195427
+Temporal cycles: 30
+Assoc. Mem. cycles: 1966
+Sample 3 (predicted, golden) class: (1, 1)
+spatial encoding cycles: 25391
+spatial encoding cycles: 66559
+spatial encoding cycles: 89933
+Spatial update cycles: 194775
+Temporal cycles: 30
+Assoc. Mem. cycles: 1923
+Sample 4 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25271
+spatial encoding cycles: 66354
+spatial encoding cycles: 89658
+Spatial update cycles: 194241
+Temporal cycles: 30
+Assoc. Mem. cycles: 1984
+Sample 5 (predicted, golden) class: (1, 1)
+spatial encoding cycles: 25352
+spatial encoding cycles: 66127
+spatial encoding cycles: 89639
+Spatial update cycles: 193970
+Temporal cycles: 30
+Assoc. Mem. cycles: 1912
+Sample 6 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25206
+spatial encoding cycles: 66247
+spatial encoding cycles: 89688
+Spatial update cycles: 194000
+Temporal cycles: 30
+Assoc. Mem. cycles: 1900
+Sample 7 (predicted, golden) class: (1, 1)
+Total cycles: 2078834
+Correct: 5 out of 8
+$finish called from file "/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v", line 158.
+$finish at simulation time           6415807500
+           V C S   S i m u l a t i o n   R e p o r t
+Time: 6415807500 ps
+CPU Time:   2293.580 seconds;       Data structure size:  10.5Mb
+Mon Jun  6 21:16:09 2022
