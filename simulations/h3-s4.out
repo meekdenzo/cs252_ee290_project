@@ -1,0 +1,322 @@
+Running with RISCV=/home/eecs/msimbule/chipyard/esp-tools-install
+mkdir -p /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig
+cd /home/eecs/msimbule/chipyard && java -jar /home/eecs/msimbule/chipyard/generators/rocket-chip/sbt-launch.jar   ";project chipyard; runMain chipyard.Generator  --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --name chipyard.TestHarness.HwachaRocketConfig --top-module chipyard.TestHarness --legacy-configs chipyard:HwachaRocketConfig "
+Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[info] welcome to sbt 1.5.5 (Private Build Java 11.0.15)
+[info] loading settings for project chipyard-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/project
+[info] loading settings for project chipyardRoot from build.sbt ...
+[info] loading settings for project hardfloat from build.sbt ...
+[info] loading settings for project rocketConfig from build.sbt ...
+[info] loading settings for project testchipip from build.sbt ...
+[info] loading settings for project icenet from build.sbt ...
+[info] loading settings for project hwacha from build.sbt ...
+[info] loading settings for project boom from build.sbt ...
+[info] loading settings for project cva6 from build.sbt ...
+[info] loading settings for project ibex from build.sbt ...
+[info] loading settings for project sodor from build.sbt ...
+[info] loading settings for project gemmini from build.sbt ...
+[info] loading settings for project tapeout from build.sbt ...
+[info] loading settings for project sim-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/sims/firesim/sim/project
+[info] loading settings for project firesim from build.sbt ...
+[info] loading settings for project targetutils from build.sbt ...
+[info] loading settings for project midas from build.sbt ...
+[info] resolving key references (35265 settings) ...
+[info] set current project to chipyardRoot (in build file:/home/eecs/msimbule/chipyard/)
+[info] set current project to chipyard (in build file:/home/eecs/msimbule/chipyard/)
+[info] compiling 1 Scala source to /home/eecs/msimbule/chipyard/generators/hwacha/target/scala-2.12/classes ...
+[info] done compiling
+[info] running chipyard.Generator --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --name chipyard.TestHarness.HwachaRocketConfig --top-module chipyard.TestHarness --legacy-configs chipyard:HwachaRocketConfig
+[error] (run-main-0) java.lang.reflect.InvocationTargetException
+[error] java.lang.reflect.InvocationTargetException
+[error] 	at ... ()
+[error] 	at freechips.rocketchip.stage.phases.PreElaboration.$anonfun$transform$1(PreElaboration.scala:36)
+[error] 	at ... ()
+[error] 	at ... (Stack trace trimmed to user code only. Rerun with --full-stacktrace to see the full stack trace)
+[error] Caused by: java.lang.IllegalArgumentException: requirement failed
+[error] 	at scala.Predef$.require(Predef.scala:268)
+[error] 	at hwacha.UsesHwachaOnlyParameters.$init$(hwacha.scala:75)
+[error] 	at hwacha.Hwacha.<init>(hwacha.scala:124)
+[error] 	at hwacha.DefaultHwachaConfig$$anonfun$$lessinit$greater$1$$anonfun$apply$1.$anonfun$applyOrElse$1(configs.scala:82)
+[error] 	at freechips.rocketchip.tile.HasLazyRoCC.$anonfun$roccs$1(LazyRoCC.scala:74)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:392)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.immutable.List.map(List.scala:298)
+[error] 	at freechips.rocketchip.tile.HasLazyRoCC.$init$(LazyRoCC.scala:74)
+[error] 	at freechips.rocketchip.tile.RocketTile.<init>(RocketTile.scala:44)
+[error] 	at freechips.rocketchip.tile.RocketTile.<init>(RocketTile.scala:53)
+[error] 	at freechips.rocketchip.tile.RocketTileParams.instantiate(RocketTile.scala:35)
+[error] 	at freechips.rocketchip.tile.RocketTileParams.instantiate(RocketTile.scala:19)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile$$anon$1.$anonfun$tile$1(HasTiles.scala:253)
+[error] 	at freechips.rocketchip.diplomacy.LazyScope.apply(LazyModule.scala:382)
+[error] 	at freechips.rocketchip.diplomacy.LazyScope.apply$(LazyModule.scala:375)
+[error] 	at freechips.rocketchip.prci.Domain.apply(ClockDomain.scala:7)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile$$anon$1.<init>(HasTiles.scala:253)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile.instantiate(HasTiles.scala:252)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile.instantiate$(HasTiles.scala:250)
+[error] 	at freechips.rocketchip.subsystem.RocketTileAttachParams.instantiate(RocketSubsystem.scala:20)
+[error] 	at freechips.rocketchip.subsystem.InstantiatesTiles.$anonfun$tile_prci_domains$1(HasTiles.scala:391)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:392)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.immutable.List.map(List.scala:298)
+[error] 	at freechips.rocketchip.subsystem.InstantiatesTiles.$init$(HasTiles.scala:391)
+[error] 	at chipyard.ChipyardSubsystem.<init>(Subsystem.scala:50)
+[error] 	at chipyard.ChipyardSystem.<init>(System.scala:24)
+[error] 	at chipyard.DigitalTop.<init>(DigitalTop.scala:15)
+[error] 	at chipyard.BuildSystem$$anonfun$$lessinit$greater$1.apply(ChipTop.scala:16)
+[error] 	at chipyard.BuildSystem$$anonfun$$lessinit$greater$1.apply(ChipTop.scala:16)
+[error] 	at chipyard.ChipTop.lazySystem$lzycompute(ChipTop.scala:28)
+[error] 	at chipyard.ChipTop.lazySystem(ChipTop.scala:28)
+[error] 	at chipyard.iobinders.HasIOBinders.$anonfun$lzy$3(IOBinders.scala:57)
+[error] 	at chipyard.iobinders.LazyIOBinder$$anonfun$$lessinit$greater$3.$anonfun$new$2(IOBinders.scala:108)
+[error] 	at chipyard.iobinders.LazyIOBinder$$anonfun$$lessinit$greater$3.$anonfun$new$2$adapted(IOBinders.scala:103)
+[error] 	at chipyard.iobinders.HasIOBinders.$anonfun$lzy$2(IOBinders.scala:57)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:392)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.immutable.List.map(List.scala:298)
+[error] 	at chipyard.iobinders.HasIOBinders.$anonfun$lzy$1(IOBinders.scala:57)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.Iterator.foreach(Iterator.scala:941)
+[error] 	at scala.collection.Iterator.foreach$(Iterator.scala:941)
+[error] 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1429)
+[error] 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[error] 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[error] 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[error] 	at chipyard.iobinders.HasIOBinders.$init$(IOBinders.scala:57)
+[error] 	at chipyard.ChipTop.<init>(ChipTop.scala:25)
+[error] 	at chipyard.BuildTop$$anonfun$$lessinit$greater$1.apply(TestHarness.scala:19)
+[error] 	at chipyard.BuildTop$$anonfun$$lessinit$greater$1.apply(TestHarness.scala:19)
+[error] 	at chipyard.TestHarness.<init>(TestHarness.scala:89)
+[error] 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[error] 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+[error] 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[error] 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+[error] 	at freechips.rocketchip.stage.phases.PreElaboration.$anonfun$transform$1(PreElaboration.scala:36)
+[error] 	at chisel3.Module$.do_apply(Module.scala:53)
+[error] 	at chisel3.stage.phases.Elaborate.$anonfun$transform$2(Elaborate.scala:33)
+[error] 	at chisel3.internal.Builder$.$anonfun$build$1(Builder.scala:719)
+[error] 	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:62)
+[error] 	at chisel3.internal.Builder$.build(Builder.scala:714)
+[error] 	at chisel3.stage.phases.Elaborate.$anonfun$transform$1(Elaborate.scala:33)
+[error] 	at scala.collection.TraversableLike.$anonfun$flatMap$1(TraversableLike.scala:245)
+[error] 	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[error] 	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[error] 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[error] 	at scala.collection.TraversableLike.flatMap(TraversableLike.scala:245)
+[error] 	at scala.collection.TraversableLike.flatMap$(TraversableLike.scala:242)
+[error] 	at scala.collection.AbstractTraversable.flatMap(Traversable.scala:108)
+[error] 	at chisel3.stage.phases.Elaborate.transform(Elaborate.scala:28)
+[error] 	at chisel3.stage.phases.Elaborate.transform(Elaborate.scala:21)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:38)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.Translator.transform(Phase.scala:248)
+[error] 	at firrtl.options.Translator.transform$(Phase.scala:248)
+[error] 	at firrtl.options.phases.DeletedWrapper.transform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.DependencyManager.$anonfun$transform$5(DependencyManager.scala:280)
+[error] 	at firrtl.Utils$.time(Utils.scala:181)
+[error] 	at firrtl.options.DependencyManager.$anonfun$transform$3(DependencyManager.scala:280)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft(LinearSeqOptimized.scala:126)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft$(LinearSeqOptimized.scala:122)
+[error] 	at scala.collection.immutable.List.foldLeft(List.scala:89)
+[error] 	at firrtl.options.DependencyManager.transform(DependencyManager.scala:269)
+[error] 	at firrtl.options.DependencyManager.transform$(DependencyManager.scala:255)
+[error] 	at firrtl.options.PhaseManager.transform(DependencyManager.scala:443)
+[error] 	at chisel3.stage.ChiselStage.run(ChiselStage.scala:45)
+[error] 	at firrtl.options.Stage$$anon$1.transform(Stage.scala:43)
+[error] 	at firrtl.options.Stage$$anon$1.transform(Stage.scala:43)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:38)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.Translator.transform(Phase.scala:248)
+[error] 	at firrtl.options.Translator.transform$(Phase.scala:248)
+[error] 	at firrtl.options.phases.DeletedWrapper.transform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.Stage.$anonfun$transform$5(Stage.scala:47)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft(LinearSeqOptimized.scala:126)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft$(LinearSeqOptimized.scala:122)
+[error] 	at scala.collection.immutable.List.foldLeft(List.scala:89)
+[error] 	at firrtl.options.Stage.$anonfun$transform$3(Stage.scala:47)
+[error] 	at logger.Logger$.$anonfun$makeScope$2(Logger.scala:137)
+[error] 	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:62)
+[error] 	at logger.Logger$.makeScope(Logger.scala:135)
+[error] 	at firrtl.options.Stage.transform(Stage.scala:47)
+[error] 	at firrtl.options.Stage.execute(Stage.scala:58)
+[error] 	at firrtl.options.StageMain.main(Stage.scala:71)
+[error] 	at chipyard.Generator.main(Generator.scala)
+[error] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[error] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[error] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[error] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[error] stack trace is suppressed; run 'last Compile / bgRunMain' for the full output
+[error] Nonzero exit code: 1
+[error] (Compile / runMain) Nonzero exit code: 1
+[error] Total time: 29 s, completed Jun 8, 2022, 11:57:04 AM
+make: *** [/home/eecs/msimbule/chipyard/common.mk:111: generator_temp] Error 1
+Running with RISCV=/home/eecs/msimbule/chipyard/esp-tools-install
+mkdir -p /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig
+cd /home/eecs/msimbule/chipyard && java -jar /home/eecs/msimbule/chipyard/generators/rocket-chip/sbt-launch.jar   ";project chipyard; runMain chipyard.Generator  --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --name chipyard.TestHarness.HwachaRocketConfig --top-module chipyard.TestHarness --legacy-configs chipyard:HwachaRocketConfig "
+Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[info] welcome to sbt 1.5.5 (Private Build Java 11.0.15)
+[info] loading settings for project chipyard-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/project
+[info] loading settings for project chipyardRoot from build.sbt ...
+[info] loading settings for project hardfloat from build.sbt ...
+[info] loading settings for project rocketConfig from build.sbt ...
+[info] loading settings for project testchipip from build.sbt ...
+[info] loading settings for project icenet from build.sbt ...
+[info] loading settings for project hwacha from build.sbt ...
+[info] loading settings for project boom from build.sbt ...
+[info] loading settings for project cva6 from build.sbt ...
+[info] loading settings for project ibex from build.sbt ...
+[info] loading settings for project sodor from build.sbt ...
+[info] loading settings for project gemmini from build.sbt ...
+[info] loading settings for project tapeout from build.sbt ...
+[info] loading settings for project sim-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/sims/firesim/sim/project
+[info] loading settings for project firesim from build.sbt ...
+[info] loading settings for project targetutils from build.sbt ...
+[info] loading settings for project midas from build.sbt ...
+[info] resolving key references (35265 settings) ...
+[info] set current project to chipyardRoot (in build file:/home/eecs/msimbule/chipyard/)
+[info] set current project to chipyard (in build file:/home/eecs/msimbule/chipyard/)
+[info] running chipyard.Generator --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --name chipyard.TestHarness.HwachaRocketConfig --top-module chipyard.TestHarness --legacy-configs chipyard:HwachaRocketConfig
+[error] (run-main-0) java.lang.reflect.InvocationTargetException
+[error] java.lang.reflect.InvocationTargetException
+[error] 	at ... ()
+[error] 	at freechips.rocketchip.stage.phases.PreElaboration.$anonfun$transform$1(PreElaboration.scala:36)
+[error] 	at ... ()
+[error] 	at ... (Stack trace trimmed to user code only. Rerun with --full-stacktrace to see the full stack trace)
+[error] Caused by: java.lang.IllegalArgumentException: requirement failed
+[error] 	at scala.Predef$.require(Predef.scala:268)
+[error] 	at hwacha.UsesHwachaOnlyParameters.$init$(hwacha.scala:75)
+[error] 	at hwacha.Hwacha.<init>(hwacha.scala:124)
+[error] 	at hwacha.DefaultHwachaConfig$$anonfun$$lessinit$greater$1$$anonfun$apply$1.$anonfun$applyOrElse$1(configs.scala:82)
+[error] 	at freechips.rocketchip.tile.HasLazyRoCC.$anonfun$roccs$1(LazyRoCC.scala:74)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:392)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.immutable.List.map(List.scala:298)
+[error] 	at freechips.rocketchip.tile.HasLazyRoCC.$init$(LazyRoCC.scala:74)
+[error] 	at freechips.rocketchip.tile.RocketTile.<init>(RocketTile.scala:44)
+[error] 	at freechips.rocketchip.tile.RocketTile.<init>(RocketTile.scala:53)
+[error] 	at freechips.rocketchip.tile.RocketTileParams.instantiate(RocketTile.scala:35)
+[error] 	at freechips.rocketchip.tile.RocketTileParams.instantiate(RocketTile.scala:19)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile$$anon$1.$anonfun$tile$1(HasTiles.scala:253)
+[error] 	at freechips.rocketchip.diplomacy.LazyScope.apply(LazyModule.scala:382)
+[error] 	at freechips.rocketchip.diplomacy.LazyScope.apply$(LazyModule.scala:375)
+[error] 	at freechips.rocketchip.prci.Domain.apply(ClockDomain.scala:7)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile$$anon$1.<init>(HasTiles.scala:253)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile.instantiate(HasTiles.scala:252)
+[error] 	at freechips.rocketchip.subsystem.CanAttachTile.instantiate$(HasTiles.scala:250)
+[error] 	at freechips.rocketchip.subsystem.RocketTileAttachParams.instantiate(RocketSubsystem.scala:20)
+[error] 	at freechips.rocketchip.subsystem.InstantiatesTiles.$anonfun$tile_prci_domains$1(HasTiles.scala:391)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:392)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.immutable.List.map(List.scala:298)
+[error] 	at freechips.rocketchip.subsystem.InstantiatesTiles.$init$(HasTiles.scala:391)
+[error] 	at chipyard.ChipyardSubsystem.<init>(Subsystem.scala:50)
+[error] 	at chipyard.ChipyardSystem.<init>(System.scala:24)
+[error] 	at chipyard.DigitalTop.<init>(DigitalTop.scala:15)
+[error] 	at chipyard.BuildSystem$$anonfun$$lessinit$greater$1.apply(ChipTop.scala:16)
+[error] 	at chipyard.BuildSystem$$anonfun$$lessinit$greater$1.apply(ChipTop.scala:16)
+[error] 	at chipyard.ChipTop.lazySystem$lzycompute(ChipTop.scala:28)
+[error] 	at chipyard.ChipTop.lazySystem(ChipTop.scala:28)
+[error] 	at chipyard.iobinders.HasIOBinders.$anonfun$lzy$3(IOBinders.scala:57)
+[error] 	at chipyard.iobinders.LazyIOBinder$$anonfun$$lessinit$greater$3.$anonfun$new$2(IOBinders.scala:108)
+[error] 	at chipyard.iobinders.LazyIOBinder$$anonfun$$lessinit$greater$3.$anonfun$new$2$adapted(IOBinders.scala:103)
+[error] 	at chipyard.iobinders.HasIOBinders.$anonfun$lzy$2(IOBinders.scala:57)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.immutable.List.foreach(List.scala:392)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.immutable.List.map(List.scala:298)
+[error] 	at chipyard.iobinders.HasIOBinders.$anonfun$lzy$1(IOBinders.scala:57)
+[error] 	at scala.collection.TraversableLike.$anonfun$map$1(TraversableLike.scala:238)
+[error] 	at scala.collection.Iterator.foreach(Iterator.scala:941)
+[error] 	at scala.collection.Iterator.foreach$(Iterator.scala:941)
+[error] 	at scala.collection.AbstractIterator.foreach(Iterator.scala:1429)
+[error] 	at scala.collection.IterableLike.foreach(IterableLike.scala:74)
+[error] 	at scala.collection.IterableLike.foreach$(IterableLike.scala:73)
+[error] 	at scala.collection.AbstractIterable.foreach(Iterable.scala:56)
+[error] 	at scala.collection.TraversableLike.map(TraversableLike.scala:238)
+[error] 	at scala.collection.TraversableLike.map$(TraversableLike.scala:231)
+[error] 	at scala.collection.AbstractTraversable.map(Traversable.scala:108)
+[error] 	at chipyard.iobinders.HasIOBinders.$init$(IOBinders.scala:57)
+[error] 	at chipyard.ChipTop.<init>(ChipTop.scala:25)
+[error] 	at chipyard.BuildTop$$anonfun$$lessinit$greater$1.apply(TestHarness.scala:19)
+[error] 	at chipyard.BuildTop$$anonfun$$lessinit$greater$1.apply(TestHarness.scala:19)
+[error] 	at chipyard.TestHarness.<init>(TestHarness.scala:89)
+[error] 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+[error] 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)
+[error] 	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)
+[error] 	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:490)
+[error] 	at freechips.rocketchip.stage.phases.PreElaboration.$anonfun$transform$1(PreElaboration.scala:36)
+[error] 	at chisel3.Module$.do_apply(Module.scala:53)
+[error] 	at chisel3.stage.phases.Elaborate.$anonfun$transform$2(Elaborate.scala:33)
+[error] 	at chisel3.internal.Builder$.$anonfun$build$1(Builder.scala:719)
+[error] 	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:62)
+[error] 	at chisel3.internal.Builder$.build(Builder.scala:714)
+[error] 	at chisel3.stage.phases.Elaborate.$anonfun$transform$1(Elaborate.scala:33)
+[error] 	at scala.collection.TraversableLike.$anonfun$flatMap$1(TraversableLike.scala:245)
+[error] 	at scala.collection.mutable.ResizableArray.foreach(ResizableArray.scala:62)
+[error] 	at scala.collection.mutable.ResizableArray.foreach$(ResizableArray.scala:55)
+[error] 	at scala.collection.mutable.ArrayBuffer.foreach(ArrayBuffer.scala:49)
+[error] 	at scala.collection.TraversableLike.flatMap(TraversableLike.scala:245)
+[error] 	at scala.collection.TraversableLike.flatMap$(TraversableLike.scala:242)
+[error] 	at scala.collection.AbstractTraversable.flatMap(Traversable.scala:108)
+[error] 	at chisel3.stage.phases.Elaborate.transform(Elaborate.scala:28)
+[error] 	at chisel3.stage.phases.Elaborate.transform(Elaborate.scala:21)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:38)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.Translator.transform(Phase.scala:248)
+[error] 	at firrtl.options.Translator.transform$(Phase.scala:248)
+[error] 	at firrtl.options.phases.DeletedWrapper.transform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.DependencyManager.$anonfun$transform$5(DependencyManager.scala:280)
+[error] 	at firrtl.Utils$.time(Utils.scala:181)
+[error] 	at firrtl.options.DependencyManager.$anonfun$transform$3(DependencyManager.scala:280)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft(LinearSeqOptimized.scala:126)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft$(LinearSeqOptimized.scala:122)
+[error] 	at scala.collection.immutable.List.foldLeft(List.scala:89)
+[error] 	at firrtl.options.DependencyManager.transform(DependencyManager.scala:269)
+[error] 	at firrtl.options.DependencyManager.transform$(DependencyManager.scala:255)
+[error] 	at firrtl.options.PhaseManager.transform(DependencyManager.scala:443)
+[error] 	at chisel3.stage.ChiselStage.run(ChiselStage.scala:45)
+[error] 	at firrtl.options.Stage$$anon$1.transform(Stage.scala:43)
+[error] 	at firrtl.options.Stage$$anon$1.transform(Stage.scala:43)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:38)
+[error] 	at firrtl.options.phases.DeletedWrapper.internalTransform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.Translator.transform(Phase.scala:248)
+[error] 	at firrtl.options.Translator.transform$(Phase.scala:248)
+[error] 	at firrtl.options.phases.DeletedWrapper.transform(DeletedWrapper.scala:15)
+[error] 	at firrtl.options.Stage.$anonfun$transform$5(Stage.scala:47)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft(LinearSeqOptimized.scala:126)
+[error] 	at scala.collection.LinearSeqOptimized.foldLeft$(LinearSeqOptimized.scala:122)
+[error] 	at scala.collection.immutable.List.foldLeft(List.scala:89)
+[error] 	at firrtl.options.Stage.$anonfun$transform$3(Stage.scala:47)
+[error] 	at logger.Logger$.$anonfun$makeScope$2(Logger.scala:137)
+[error] 	at scala.util.DynamicVariable.withValue(DynamicVariable.scala:62)
+[error] 	at logger.Logger$.makeScope(Logger.scala:135)
+[error] 	at firrtl.options.Stage.transform(Stage.scala:47)
+[error] 	at firrtl.options.Stage.execute(Stage.scala:58)
+[error] 	at firrtl.options.StageMain.main(Stage.scala:71)
+[error] 	at chipyard.Generator.main(Generator.scala)
+[error] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+[error] 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+[error] 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+[error] 	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+[error] stack trace is suppressed; run 'last Compile / bgRunMain' for the full output
+[error] Nonzero exit code: 1
+[error] (Compile / runMain) Nonzero exit code: 1
+[error] Total time: 25 s, completed Jun 8, 2022, 12:00:14 PM
+make: *** [/home/eecs/msimbule/chipyard/common.mk:111: generator_temp] Error 1

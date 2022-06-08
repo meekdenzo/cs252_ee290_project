@@ -1,0 +1,176 @@
+Running with RISCV=/home/eecs/msimbule/chipyard/esp-tools-install
+(set -o pipefail &&  /home/eecs/msimbule/chipyard/sims/vcs/simv-chipyard-HwachaRocketConfig +permissive +dramsim +dramsim_ini_dir=/home/eecs/msimbule/chipyard/generators/testchipip/src/main/resources/dramsim2_ini +max-cycles=10000000  +ntb_random_seed_automatic +verbose +permissive-off /home/eecs/msimbule/chipyard/generators/HD_sensor_fusion/software/fusion/main_vec-baremetal </dev/null 2> >(spike-dasm > /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.out) | tee /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.log)
+Chronologic VCS simulator copyright 1991-2021
+Contains Synopsys proprietary information.
+Compiler version S-2021.09-SP1-1_Full64; Runtime version S-2021.09-SP1-1_Full64;  Jun  7 13:12 2022
+NOTE: automatic random seed used: 3779538842
+[UART] UART0 is here (stdin/stdout).
+spatial encoding cycles: 30762
+spatial encoding cycles: 76739
+spatial encoding cycles: 104568
+spatial encoding cycles: 27018
+spatial encoding cycles: 70709
+spatial encoding cycles: 94150
+spatial encoding cycles: 26082
+spatial encoding cycles: 68954
+spatial encoding cycles: 91944
+Initial Spatial cycles: 626043
+Temporal cycles: 92
+Assoc. Mem. cycles: 2552
+Sample 0 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25910
+spatial encoding cycles: 67997
+spatial encoding cycles: 91196
+Spatial update cycles: 198241
+Temporal cycles: 30
+Assoc. Mem. cycles: 2022
+Sample 1 (predicted, golden) class: (0, 0)
+spatial encoding cycles: 25488
+spatial encoding cycles: 67184
+spatial encoding cycles: 90626
+Spatial update cycles: 196153
+Temporal cycles: 30
+Assoc. Mem. cycles: 1903
+Sample 2 (predicted, golden) class: (0, 0)
+spatial encoding cycles: 25507
+spatial encoding cycles: 66963
+spatial encoding cycles: 90108
+Spatial update cycles: 195427
+Temporal cycles: 30
+Assoc. Mem. cycles: 1966
+Sample 3 (predicted, golden) class: (1, 1)
+spatial encoding cycles: 25391
+spatial encoding cycles: 66559
+spatial encoding cycles: 89933
+Spatial update cycles: 194775
+Temporal cycles: 30
+Assoc. Mem. cycles: 1923
+Sample 4 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25271
+spatial encoding cycles: 66354
+spatial encoding cycles: 89658
+Spatial update cycles: 194241
+Temporal cycles: 30
+Assoc. Mem. cycles: 1984
+Sample 5 (predicted, golden) class: (1, 1)
+spatial encoding cycles: 25352
+spatial encoding cycles: 66127
+spatial encoding cycles: 89639
+Spatial update cycles: 193970
+Temporal cycles: 30
+Assoc. Mem. cycles: 1912
+Sample 6 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25206
+spatial encoding cycles: 66247
+spatial encoding cycles: 89688
+Spatial update cycles: 194000
+Temporal cycles: 30
+Assoc. Mem. cycles: 1900
+Sample 7 (predicted, golden) class: (1, 1)
+Total cycles: 2078834
+Correct: 5 out of 8
+$finish called from file "/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v", line 158.
+$finish at simulation time           6415807500
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 6415807500 ps
+CPU Time:   2291.120 seconds;       Data structure size:  10.5Mb
+Tue Jun  7 13:50:28 2022
+Running with RISCV=/home/eecs/msimbule/chipyard/esp-tools-install
+(set -o pipefail &&  /home/eecs/msimbule/chipyard/sims/vcs/simv-chipyard-HwachaRocketConfig +permissive +dramsim +dramsim_ini_dir=/home/eecs/msimbule/chipyard/generators/testchipip/src/main/resources/dramsim2_ini +max-cycles=10000000  +ntb_random_seed_automatic +verbose +permissive-off /home/eecs/msimbule/chipyard/generators/HD_sensor_fusion/software/fusion/main_vec-baremetal </dev/null 2> >(spike-dasm > /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.out) | tee /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.log)
+Chronologic VCS simulator copyright 1991-2021
+Contains Synopsys proprietary information.
+Compiler version S-2021.09-SP1-1_Full64; Runtime version S-2021.09-SP1-1_Full64;  Jun  7 13:53 2022
+NOTE: automatic random seed used: 4009308854
+[UART] UART0 is here (stdin/stdout).
+spatial encoding cycles: 30896
+spatial encoding cycles: 77378
+spatial encoding cycles: 104460
+spatial encoding cycles: 27264
+spatial encoding cycles: 70739
+spatial encoding cycles: 94090
+spatial encoding cycles: 26018
+spatial encoding cycles: 68594
+spatial encoding cycles: 91640
+Initial Spatial cycles: 626055
+Temporal cycles: 63
+Assoc. Mem. cycles: 2491
+Sample 0 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25778
+spatial encoding cycles: 67893
+spatial encoding cycles: 91089
+Spatial update cycles: 197962
+Temporal cycles: 33
+Assoc. Mem. cycles: 2028
+Sample 1 (predicted, golden) class: (0, 0)
+spatial encoding cycles: 25501
+spatial encoding cycles: 67156
+spatial encoding cycles: 90441
+Spatial update cycles: 196009
+Temporal cycles: 33
+Assoc. Mem. cycles: 1934
+Sample 2 (predicted, golden) class: (1, 0)
+Temporal cycles: 33
+Assoc. Mem. cycles: 1958
+Sample 3 (predicted, golden) class: (1, 1)
+Temporal cycles: 33
+Assoc. Mem. cycles: 1952
+Sample 4 (predicted, golden) class: (1, 0)
+Temporal cycles: 33
+Assoc. Mem. cycles: 1952
+Sample 5 (predicted, golden) class: (0, 1)
+Temporal cycles: 33
+Assoc. Mem. cycles: 1952
+Sample 6 (predicted, golden) class: (1, 0)
+Temporal cycles: 33
+Assoc. Mem. cycles: 1952
+Sample 7 (predicted, golden) class: (1, 1)
+Total cycles: 1093588
+Correct: 3 out of 8
+$finish called from file "/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v", line 158.
+$finish at simulation time           5430537500
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 5430537500 ps
+CPU Time:   1667.980 seconds;       Data structure size:  10.5Mb
+Tue Jun  7 14:21:29 2022
+Running with RISCV=/home/eecs/msimbule/chipyard/esp-tools-install
+(set -o pipefail &&  /home/eecs/msimbule/chipyard/sims/vcs/simv-chipyard-HwachaRocketConfig +permissive +dramsim +dramsim_ini_dir=/home/eecs/msimbule/chipyard/generators/testchipip/src/main/resources/dramsim2_ini +max-cycles=10000000  +ntb_random_seed_automatic +verbose +permissive-off /home/eecs/msimbule/chipyard/generators/HD_sensor_fusion/software/fusion/main_vec-baremetal </dev/null 2> >(spike-dasm > /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.out) | tee /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.log)
+Chronologic VCS simulator copyright 1991-2021
+Contains Synopsys proprietary information.
+Compiler version S-2021.09-SP1-1_Full64; Runtime version S-2021.09-SP1-1_Full64;  Jun  7 19:33 2022
+NOTE: automatic random seed used: 630073185
+[UART] UART0 is here (stdin/stdout).
+spatial encoding cycles: 31046
+spatial encoding cycles: 76907
+spatial encoding cycles: 104748
+spatial encoding cycles: 27321
+spatial encoding cycles: 70906
+spatial encoding cycles: 93960
+spatial encoding cycles: 26259
+spatial encoding cycles: 68611
+spatial encoding cycles: 92125
+Initial Spatial cycles: 627321
+Temporal cycles: 60
+Assoc. Mem. cycles: 2546
+Sample 0 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 25926
+spatial encoding cycles: 67928
+spatial encoding cycles: 91331
+Spatial update cycles: 198383
+Temporal cycles: 30
+Assoc. Mem. cycles: 2065
+Sample 1 (predicted, golden) class: (0, 0)
+spatial encoding cycles: 25727
+spatial encoding cycles: 67078
+spatial encoding cycles: 90741
+Spatial update cycles: 196479
+Temporal cycles: 34
+Assoc. Mem. cycles: 2062
+Sample 2 (predicted, golden) class: (1, 0)
+Total cycles: 1055659
+Correct: 1 out of 3
+$finish called from file "/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v", line 158.
+$finish at simulation time           5392668500
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 5392668500 ps
+CPU Time:   1662.020 seconds;       Data structure size:  10.5Mb
+Tue Jun  7 20:01:25 2022
