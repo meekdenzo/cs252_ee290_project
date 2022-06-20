@@ -1,0 +1,1052 @@
+Running with RISCV=/home/eecs/msimbule/chipyard/esp-tools-install
+mkdir -p /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig
+cd /home/eecs/msimbule/chipyard && java -jar /home/eecs/msimbule/chipyard/generators/rocket-chip/sbt-launch.jar   ";project chipyard; runMain chipyard.Generator  --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --name chipyard.TestHarness.HwachaRocketConfig --top-module chipyard.TestHarness --legacy-configs chipyard:HwachaRocketConfig "
+Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[info] welcome to sbt 1.5.5 (Private Build Java 11.0.15)
+[info] loading settings for project chipyard-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/project
+[info] loading settings for project chipyardRoot from build.sbt ...
+[info] loading settings for project hardfloat from build.sbt ...
+[info] loading settings for project rocketConfig from build.sbt ...
+[info] loading settings for project testchipip from build.sbt ...
+[info] loading settings for project icenet from build.sbt ...
+[info] loading settings for project hwacha from build.sbt ...
+[info] loading settings for project boom from build.sbt ...
+[info] loading settings for project cva6 from build.sbt ...
+[info] loading settings for project ibex from build.sbt ...
+[info] loading settings for project sodor from build.sbt ...
+[info] loading settings for project gemmini from build.sbt ...
+[info] loading settings for project tapeout from build.sbt ...
+[info] loading settings for project sim-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/sims/firesim/sim/project
+[info] loading settings for project firesim from build.sbt ...
+[info] loading settings for project targetutils from build.sbt ...
+[info] loading settings for project midas from build.sbt ...
+[info] resolving key references (35265 settings) ...
+[info] set current project to chipyardRoot (in build file:/home/eecs/msimbule/chipyard/)
+[info] set current project to chipyard (in build file:/home/eecs/msimbule/chipyard/)
+[info] compiling 1 Scala source to /home/eecs/msimbule/chipyard/generators/sifive-cache/target/scala-2.12/classes ...
+[warn] there was one feature warning; re-run with -feature for details
+[warn] one warning found
+[info] done compiling
+[info] running chipyard.Generator --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --name chipyard.TestHarness.HwachaRocketConfig --top-module chipyard.TestHarness --legacy-configs chipyard:HwachaRocketConfig
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+L2 InclusiveCache Client Map:
+	0 <= serial-tl
+	1 <= HwachaVMU
+	2 <= HwachaVMU
+	3 <= HwachaVMU
+	4 <= HwachaVMU
+	5 <= HwachaVMU
+	6 <= HwachaVMU
+	7 <= HwachaVMU
+	8 <= HwachaVMU
+	9 <= HwachaVMU
+	10 <= HwachaVMU
+	11 <= HwachaVMU
+	12 <= HwachaVMU
+	13 <= HwachaVMU
+	14 <= HwachaVMU
+	15 <= HwachaVMU
+	16 <= HwachaVMU
+	17 <= Core 0 DCache
+	18 <= Core 0 ICache
+	19 <= HwachaSMU
+	20 <= Core 0 ICache
+
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+Interrupt map (2 harts 1 interrupts):
+  [1, 1] => uart_0
+
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+<stdin>:124.28-129.5: Warning (simple_bus_reg): /soc/subsystem_mbus_clock: missing or empty reg/ranges property
+<stdin>:130.28-135.5: Warning (simple_bus_reg): /soc/subsystem_pbus_clock: missing or empty reg/ranges property
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+Clock subsystem_pbus_0: using diplomatically specified frequency of 100.0.
+Clock subsystem_mbus_0: using diplomatically specified frequency of 100.0.
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+WARNING: TLMonitor instantiated on a bus with source bits (16) > 14; A=>D transaction flight will not be checked
+/dts-v1/;
+
+/ {
+	#address-cells = <1>;
+	#size-cells = <1>;
+	compatible = "freechips,rocketchip-unknown-dev";
+	model = "freechips,rocketchip-unknown";
+	L26: aliases {
+		serial0 = &L20;
+	};
+	L25: cpus {
+		#address-cells = <1>;
+		#size-cells = <0>;
+		timebase-frequency = <1000000>;
+		L7: cpu@0 {
+			clock-frequency = <0>;
+			compatible = "sifive,rocket0", "riscv";
+			d-cache-block-size = <64>;
+			d-cache-sets = <64>;
+			d-cache-size = <16384>;
+			d-tlb-sets = <1>;
+			d-tlb-size = <32>;
+			device_type = "cpu";
+			hardware-exec-breakpoint-count = <1>;
+			i-cache-block-size = <64>;
+			i-cache-sets = <64>;
+			i-cache-size = <16384>;
+			i-tlb-sets = <1>;
+			i-tlb-size = <32>;
+			mmu-type = "riscv,sv39";
+			next-level-cache = <&L3>;
+			reg = <0x0>;
+			riscv,isa = "rv64imafdc";
+			riscv,pmpgranularity = <4>;
+			riscv,pmpregions = <8>;
+			status = "okay";
+			timebase-frequency = <1000000>;
+			tlb-split;
+			L4: interrupt-controller {
+				#interrupt-cells = <1>;
+				compatible = "riscv,cpu-intc";
+				interrupt-controller;
+			};
+		};
+	};
+	L27: htif {
+		compatible = "ucb,htif0";
+	};
+	L14: memory@80000000 {
+		device_type = "memory";
+		reg = <0x80000000 0x10000000>;
+	};
+	L24: soc {
+		#address-cells = <1>;
+		#size-cells = <1>;
+		compatible = "freechips,rocketchip-unknown-soc", "simple-bus";
+		ranges;
+		L17: boot-address-reg@4000 {
+			reg = <0x4000 0x1000>;
+			reg-names = "control";
+		};
+		L3: cache-controller@2010000 {
+			cache-block-size = <64>;
+			cache-level = <2>;
+			cache-sets = <2048>;
+			cache-size = <1048576>;
+			cache-unified;
+			compatible = "sifive,inclusivecache0", "cache";
+			next-level-cache = <&L14 &L18 &L19>;
+			reg = <0x2010000 0x1000>;
+			reg-names = "control";
+			sifive,mshr-count = <12>;
+		};
+		L9: clint@2000000 {
+			compatible = "riscv,clint0";
+			interrupts-extended = <&L4 3 &L4 7>;
+			reg = <0x2000000 0x10000>;
+			reg-names = "control";
+		};
+		L21: clock-gater@100000 {
+			reg = <0x100000 0x1000>;
+			reg-names = "control";
+		};
+		L10: debug-controller@0 {
+			compatible = "sifive,debug-013", "riscv,debug-013";
+			debug-attach = "jtag";
+			interrupts-extended = <&L4 65535>;
+			reg = <0x0 0x1000>;
+			reg-names = "control";
+		};
+		L1: error-device@3000 {
+			compatible = "sifive,error0";
+			reg = <0x3000 0x1000>;
+		};
+		L8: interrupt-controller@c000000 {
+			#interrupt-cells = <1>;
+			compatible = "riscv,plic0";
+			interrupt-controller;
+			interrupts-extended = <&L4 11 &L4 9>;
+			reg = <0xc000000 0x4000000>;
+			reg-names = "control";
+			riscv,max-priority = <1>;
+			riscv,ndev = <1>;
+		};
+		L18: lbwif-ram@10000000 {
+			reg = <0x10000000 0x1000>;
+		};
+		L19: lbwif-rom@20000 {
+			reg = <0x20000 0x10000>;
+		};
+		L16: rom@10000 {
+			compatible = "sifive,rom0";
+			reg = <0x10000 0x10000>;
+			reg-names = "mem";
+		};
+		L20: serial@54000000 {
+			clocks = <&L0>;
+			compatible = "sifive,uart0";
+			interrupt-parent = <&L8>;
+			interrupts = <1>;
+			reg = <0x54000000 0x1000>;
+			reg-names = "control";
+		};
+		L2: subsystem_mbus_clock {
+			#clock-cells = <0>;
+			clock-frequency = <100000000>;
+			clock-output-names = "subsystem_mbus_clock";
+			compatible = "fixed-clock";
+		};
+		L0: subsystem_pbus_clock {
+			#clock-cells = <0>;
+			clock-frequency = <100000000>;
+			clock-output-names = "subsystem_pbus_clock";
+			compatible = "fixed-clock";
+		};
+		L22: tile-reset-setter@110000 {
+			reg = <0x110000 0x1000>;
+			reg-names = "control";
+		};
+	};
+};
+
+Generated Address Map
+	       0 -     1000 ARWX  debug-controller@0
+	    3000 -     4000 ARWX  error-device@3000
+	    4000 -     5000 ARW   boot-address-reg@4000
+	   10000 -    20000  R X  rom@10000
+	   20000 -    30000  R XC lbwif-rom@20000
+	  100000 -   101000 ARW   clock-gater@100000
+	  110000 -   111000 ARW   tile-reset-setter@110000
+	 2000000 -  2010000 ARW   clint@2000000
+	 2010000 -  2011000 ARW   cache-controller@2010000
+	 c000000 - 10000000 ARW   interrupt-controller@c000000
+	10000000 - 10001000 ARWXC lbwif-ram@10000000
+	54000000 - 54001000 ARW   serial@54000000
+	80000000 - 90000000 ARWXC memory@80000000
+
+
+buildTopClockGenerator Frequency Summary
+  Input Reference Frequency: 100.0 MHz
+  Output clock subsystem_sbus_0, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+  Output clock subsystem_sbus_1, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+  Output clock subsystem_pbus_0, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+  Output clock subsystem_fbus_0, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+  Output clock subsystem_mbus_0, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+  Output clock subsystem_cbus_0, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+  Output clock implicit_clock, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+
+harnessDividerOnlyClockGenerator Frequency Summary
+  Input Reference Frequency: 100.0 MHz
+  Output clock buildtop_reference_clock, requested: 100.0 MHz, actual: 100.0 MHz (division of 1)
+[success] Total time: 290 s (04:50), completed Jun 20, 2022, 10:03:21 AM
+cd /home/eecs/msimbule/chipyard && java -jar /home/eecs/msimbule/chipyard/generators/rocket-chip/sbt-launch.jar   ";project tapeout; runMain barstools.tapeout.transforms.GenerateTopAndHarness  --allow-unrecognized-annotations --output-file /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v --harness-o /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.v --input-file /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.fir --syn-top ChipTop --harness-top TestHarness --annotation-file /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.anno.json --top-anno-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.anno.json --top-dotf-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.top.f --top-fir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.fir --harness-anno-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.anno.json --harness-dotf-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.harness.f --harness-fir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.fir --infer-rw --repl-seq-mem -c:TestHarness:-o:/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.conf -thconf /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.conf --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --log-level error "
+Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[info] welcome to sbt 1.5.5 (Private Build Java 11.0.15)
+[info] loading settings for project chipyard-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/project
+[info] loading settings for project chipyardRoot from build.sbt ...
+[info] loading settings for project hardfloat from build.sbt ...
+[info] loading settings for project rocketConfig from build.sbt ...
+[info] loading settings for project testchipip from build.sbt ...
+[info] loading settings for project icenet from build.sbt ...
+[info] loading settings for project hwacha from build.sbt ...
+[info] loading settings for project boom from build.sbt ...
+[info] loading settings for project cva6 from build.sbt ...
+[info] loading settings for project ibex from build.sbt ...
+[info] loading settings for project sodor from build.sbt ...
+[info] loading settings for project gemmini from build.sbt ...
+[info] loading settings for project tapeout from build.sbt ...
+[info] loading settings for project sim-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/sims/firesim/sim/project
+[info] loading settings for project firesim from build.sbt ...
+[info] loading settings for project targetutils from build.sbt ...
+[info] loading settings for project midas from build.sbt ...
+[info] resolving key references (35265 settings) ...
+[info] set current project to chipyardRoot (in build file:/home/eecs/msimbule/chipyard/)
+[info] set current project to tapeout (in build file:/home/eecs/msimbule/chipyard/)
+[info] running (fork) barstools.tapeout.transforms.GenerateTopAndHarness --allow-unrecognized-annotations --output-file /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v --harness-o /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.v --input-file /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.fir --syn-top ChipTop --harness-top TestHarness --annotation-file /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.anno.json --top-anno-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.anno.json --top-dotf-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.top.f --top-fir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.fir --harness-anno-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.anno.json --harness-dotf-out /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.harness.f --harness-fir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.fir --infer-rw --repl-seq-mem -c:TestHarness:-o:/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.conf -thconf /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.conf --target-dir /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig --log-level error
+[error] Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[success] Total time: 388 s (06:28), completed Jun 20, 2022, 10:10:07 AM
+touch /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.top.f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.harness.f
+cd /home/eecs/msimbule/chipyard && java -jar /home/eecs/msimbule/chipyard/generators/rocket-chip/sbt-launch.jar   ";project tapeout; runMain barstools.macros.MacroCompiler -n /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.conf -v /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.v -f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.fir --mode synflops"
+Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[info] welcome to sbt 1.5.5 (Private Build Java 11.0.15)
+[info] loading settings for project chipyard-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/project
+[info] loading settings for project chipyardRoot from build.sbt ...
+[info] loading settings for project hardfloat from build.sbt ...
+[info] loading settings for project rocketConfig from build.sbt ...
+[info] loading settings for project testchipip from build.sbt ...
+[info] loading settings for project icenet from build.sbt ...
+[info] loading settings for project hwacha from build.sbt ...
+[info] loading settings for project boom from build.sbt ...
+[info] loading settings for project cva6 from build.sbt ...
+[info] loading settings for project ibex from build.sbt ...
+[info] loading settings for project sodor from build.sbt ...
+[info] loading settings for project gemmini from build.sbt ...
+[info] loading settings for project tapeout from build.sbt ...
+[info] loading settings for project sim-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/sims/firesim/sim/project
+[info] loading settings for project firesim from build.sbt ...
+[info] loading settings for project targetutils from build.sbt ...
+[info] loading settings for project midas from build.sbt ...
+[info] resolving key references (35265 settings) ...
+[info] set current project to chipyardRoot (in build file:/home/eecs/msimbule/chipyard/)
+[info] set current project to tapeout (in build file:/home/eecs/msimbule/chipyard/)
+[info] running (fork) barstools.macros.MacroCompiler -n /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.conf -v /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.v -f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.fir --mode synflops
+[error] Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[success] Total time: 7 s, completed Jun 20, 2022, 10:10:29 AM
+cd /home/eecs/msimbule/chipyard && java -jar /home/eecs/msimbule/chipyard/generators/rocket-chip/sbt-launch.jar   ";project tapeout; runMain barstools.macros.MacroCompiler  -n /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.conf -v /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.v -f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.fir --mode synflops"
+Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[info] welcome to sbt 1.5.5 (Private Build Java 11.0.15)
+[info] loading settings for project chipyard-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/project
+[info] loading settings for project chipyardRoot from build.sbt ...
+[info] loading settings for project hardfloat from build.sbt ...
+[info] loading settings for project rocketConfig from build.sbt ...
+[info] loading settings for project testchipip from build.sbt ...
+[info] loading settings for project icenet from build.sbt ...
+[info] loading settings for project hwacha from build.sbt ...
+[info] loading settings for project boom from build.sbt ...
+[info] loading settings for project cva6 from build.sbt ...
+[info] loading settings for project ibex from build.sbt ...
+[info] loading settings for project sodor from build.sbt ...
+[info] loading settings for project gemmini from build.sbt ...
+[info] loading settings for project tapeout from build.sbt ...
+[info] loading settings for project sim-build from plugins.sbt ...
+[info] loading project definition from /home/eecs/msimbule/chipyard/sims/firesim/sim/project
+[info] loading settings for project firesim from build.sbt ...
+[info] loading settings for project targetutils from build.sbt ...
+[info] loading settings for project midas from build.sbt ...
+[info] resolving key references (35265 settings) ...
+[info] set current project to chipyardRoot (in build file:/home/eecs/msimbule/chipyard/)
+[info] set current project to tapeout (in build file:/home/eecs/msimbule/chipyard/)
+[info] running (fork) barstools.macros.MacroCompiler -n /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.conf -v /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.v -f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.fir --mode synflops
+[error] Picked up JAVA_TOOL_OPTIONS: -Xmx8G -Xss8M -Djava.io.tmpdir=/home/eecs/msimbule/chipyard/.java_tmp
+[success] Total time: 7 s, completed Jun 20, 2022, 10:10:48 AM
+sort -u /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/sim_files.f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.top.f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/firrtl_black_box_resource_files.harness.f | grep -v '.*\.\(svh\|h\)$' > /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/sim_files.common.f
+rm -rf /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig
+vcs -full64 -CFLAGS " -O3 -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig " -LDFLAGS "-L/home/eecs/msimbule/chipyard/esp-tools-install/lib -Wl,-rpath,/home/eecs/msimbule/chipyard/esp-tools-install/lib -L/home/eecs/msimbule/chipyard/sims/vcs -L/home/eecs/msimbule/chipyard/tools/DRAMSim2" -lfesvr -ldramsim -notice -line +lint=all,noVCDE,noONGS,noUI -error=PCWM-L -error=noZMMCM -timescale=1ns/10ps -quiet -q +rad +vcs+lic+wait +vc+list -f /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/sim_files.common.f -sverilog +systemverilogext+.sv+.svi+.svh+.svt -assert svaext +libext+.sv +v2k +verilog2001ext+.v95+.vt+.vp +libext+.v -debug_pp +incdir+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.v /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.mems.v /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.harness.mems.v +define+VCS +define+CLOCK_PERIOD=1.0 +define+RESET_DELAY=777.7 +define+PRINTF_COND=TestDriver.printf_cond +define+STOP_COND=!TestDriver.reset +define+MODEL=TestHarness +define+RANDOMIZE_MEM_INIT +define+RANDOMIZE_REG_INIT +define+RANDOMIZE_GARBAGE_ASSIGN +define+RANDOMIZE_INVALID_ASSIGN  -o /home/eecs/msimbule/chipyard/sims/vcs/simv-chipyard-HwachaRocketConfig -Mdir=/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig
+
+Warning-[DEBUG_DEP] Option will be deprecated
+  The option '-debug_pp' will be deprecated in a future release.  Please use 
+  '-debug_acc+pp+dmptf -debug_region+cell+encrypt' instead.
+
+
+Warning-[DEBUG_DEP] Option will be deprecated
+  The option 'debug=4' will be deprecated in a future release.  Please use 
+  '-debug_acc+pp+f+fn+dmptf -debug_region+cell+encrypt' instead.
+
+
+Lint-[SV-PIU] Package import statement in $unit scope.
+/ecad/tools/synopsys/vcs/current/etc/sva/rec_ltl_classes_package.svp, 2
+
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimSerial.v, 44
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __in_valid = 0;
+  Expression: __in_valid
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimSerial.v, 45
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __out_ready = 0;
+  Expression: __out_ready
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimSerial.v, 48
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __in_valid_reg <= 0;
+  Expression: __in_valid_reg
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimSerial.v, 50
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __out_ready_reg <= 0;
+  Expression: __out_ready_reg
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimSerial.v, 51
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __exit_reg <= 0;
+  Expression: __exit_reg
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimUART.v, 54
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __in_valid = 0;
+  Expression: __in_valid
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimUART.v, 55
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __out_ready = 0;
+  Expression: __out_ready
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimUART.v, 57
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __in_valid_reg <= 0;
+  Expression: __in_valid_reg
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimUART.v, 58
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 8-bit LHS target:
+  Source info: __in_bits_reg <= 0;
+  Expression: __in_bits_reg
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimUART.v, 59
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: __out_ready_reg <= 0;
+  Expression: __out_ready_reg
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 21
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 64-bit LHS target:
+  Source info: max_cycles = 0;
+  Expression: max_cycles
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 22
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 64-bit LHS target:
+  Source info: dump_start = 0;
+  Expression: dump_start
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 23
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 64-bit LHS target:
+  Source info: trace_count = 0;
+  Expression: trace_count
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 24
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 2048-bit LHS target:
+  Source info: fsdbfile = 0;
+  Expression: fsdbfile
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 25
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 2048-bit LHS target:
+  Source info: vcdplusfile = 0;
+  Expression: vcdplusfile
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 26
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 2048-bit LHS target:
+  Source info: vcdfile = 0;
+  Expression: vcdfile
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 115
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 8-bit wide expression is assigned to a 256-bit LHS target:
+  Source info: reason = "\000";
+  Expression: reason
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 16
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: reset = 0;
+  Expression: reset
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 32
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 32-bit wide expression is assigned to a 1-bit LHS target:
+  Source info: verbose = $test$plusargs("verbose");
+  Expression: verbose
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v, 139
+  Width mismatch between LHS and RHS is found in assignment:
+  The following 80-bit wide expression is assigned to a 256-bit LHS target:
+  Source info: reason = " (timeout)";
+  Expression: reason
+
+
+Lint-[WMIA-L] Width mismatch in assignment
+/ecad/tools/synopsys/vcs/current/etc/sva/rec_ltl_classes_package.svp, 2
+
+
+
+
+Lint-[PCTIO-L] Ports coerced to inout
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v, 291785
+"io_deq_valid"
+  Port "io_deq_valid" declared as output in module "QueueCompatibility_69" may
+  need to be inout. Coercing to inout.
+
+
+Lint-[PCTIO-L] Ports coerced to inout
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v, 288848
+"io_deq_valid"
+  Port "io_deq_valid" declared as output in module "QueueCompatibility_57" may
+  need to be inout. Coercing to inout.
+
+
+Lint-[PCTIO-L] Ports coerced to inout
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v, 153116
+"io_enq_ready"
+  Port "io_enq_ready" declared as output in module "QueueCompatibility_4" may 
+  need to be inout. Coercing to inout.
+
+
+Lint-[PCTIO-L] Ports coerced to inout
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v, 153122
+"io_deq_valid"
+  Port "io_deq_valid" declared as output in module "QueueCompatibility_4" may 
+  need to be inout. Coercing to inout.
+
+
+Lint-[PCTIO-L] Ports coerced to inout
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v, 152947
+"io_enq_ready"
+  Port "io_enq_ready" declared as output in module "QueueCompatibility" may 
+  need to be inout. Coercing to inout.
+
+
+Lint-[PCTIO-L] Ports coerced to inout
+/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig.top.v, 152953
+"io_deq_valid"
+  Port "io_deq_valid" declared as output in module "QueueCompatibility" may 
+  need to be inout. Coercing to inout.
+
+399 modules and 15 UDPs read.
+Generating code for _VCSgd_qT4V3
+Generating code for _VCSgd_reYIK
+Generating code for _VCSgd_TykGD
+Generating code for _VCSgd_r6AeS
+Generating code for _VCSgd_NKIiI
+Generating code for _VCSgd_LSQDD
+Generating code for _VCSgd_v190n
+Generating code for _VCSgd_ZrfTa
+Generating code for _VCSgd_IVz0R
+Generating code for _VCSgd_qW2V4
+Generating code for _VCSgd_gKdQ7
+Generating code for _VCSgd_wk8Rj
+Generating code for _VCSgd_xHIqC
+Generating code for _VCSgd_Y9fx5
+Generating code for _VCSgd_V6ZN5
+Generating code for _VCSgd_r7xua
+Generating code for _VCSgd_DHUwL
+Generating code for _VCSgd_wtBp9
+Generating code for _VCSgd_A9acY
+Generating code for _VCSgd_CmqZi
+Generating code for _VCSgd_G51V8
+Generating code for _VCSgd_M10kB
+Generating code for _VCSgd_GEmJe
+Generating code for _VCSgd_SydhY
+Generating code for _VCSgd_f6fpd
+Generating code for _VCSgd_U2duu
+Generating code for _VCSgd_G5D9s
+Generating code for _VCSgd_jrwqy
+Generating code for _VCSgd_uAhtB
+Generating code for _VCSgd_ciB4Z
+Generating code for _VCSgd_D1AUt
+Generating code for _VCSgd_btvuP
+Generating code for _VCSgd_jRpyI
+Generating code for _VCSgd_bEkRN
+Generating code for _VCSgd_Rzena
+Generating code for _VCSgd_q5N8I
+Generating code for _VCSgd_SbbBi
+Generating code for _VCSgd_zwSxT
+Generating code for _VCSgd_YrSMD
+Generating code for _VCSgd_LjkNG
+Generating code for _VCSgd_UDVfe
+Generating code for _VCSgd_sEmMJ
+Generating code for _VCSgd_nP9fg
+Generating code for _VCSgd_TKKU8
+Generating code for _VCSgd_kzdF0
+Generating code for _VCSgd_TQLWP
+Generating code for _VCSgd_JTzV3
+Generating code for _VCSgd_kQ8Gv
+Generating code for _VCSgd_ShsuT
+Generating code for _VCSgd_GFDEs
+Generating code for _VCSgd_Y32M0
+Generating code for _VCSgd_HzqsM
+Generating code for _VCSgd_MJipY
+Generating code for _VCSgd_rG3pi
+Generating code for _VCSgd_e8FM0
+Generating code for _VCSgd_nybG9
+Generating code for _VCSgd_xRQvs
+Generating code for _VCSgd_quKip
+Generating code for _VCSgd_qtdnH
+Generating code for _VCSgd_AFz9Z
+Generating code for _VCSgd_fjWz2
+Generating code for _VCSgd_cyMQa
+Generating code for _VCSgd_kFtjY
+Generating code for _VCSgd_BbqA7
+Generating code for _VCSgd_s7L1s
+Generating code for _VCSgd_Z7HeA
+Generating code for _VCSgd_p6fji
+Generating code for _VCSgd_ugbxh
+Generating code for _VCSgd_w3s0B
+Generating code for _VCSgd_tywyS
+Generating code for _VCSgd_x1eQk
+Generating code for _VCSgd_JvyRq
+Generating code for _VCSgd_N17Ru
+Generating code for _VCSgd_QdEW7
+Generating code for _VCSgd_f9Rns
+Generating code for _VCSgd_q90wm
+Generating code for _VCSgd_M6aiZ
+Generating code for _VCSgd_QL0bP
+Generating code for _VCSgd_uBZjQ
+Generating code for _VCSgd_uAGG4
+Generating code for _VCSgd_yTp8G
+Generating code for _VCSgd_RZNH3
+Generating code for _VCSgd_hxB5H
+Generating code for _VCSgd_CdpQ2
+Generating code for _VCSgd_CRM9f
+Generating code for _VCSgd_zae11
+Generating code for _VCSgd_q9inp
+Generating code for _VCSgd_NkZEA
+Generating code for _VCSgd_RqFWA
+Generating code for _VCSgd_WSahb
+Generating code for _VCSgd_zcImt
+Generating code for _VCSgd_xcc8e
+Generating code for _VCSgd_cWUVA
+Generating code for _VCSgd_FnP5n
+Generating code for _VCSgd_nLeuq
+Generating code for _VCSgd_VgkSL
+Generating code for _VCSgd_bc2BI
+Generating code for _VCSgd_Nam3V
+Generating code for _VCSgd_d8WY0
+Generating code for _VCSgd_gyNQb
+Generating code for _VCSgd_CDSPT
+Generating code for _VCSgd_ZPgHt
+Generating code for _VCSgd_aCZWM
+Generating code for _VCSgd_spmcr
+Generating code for _VCSgd_mCdpM
+Generating code for _VCSgd_ycSIZ
+Generating code for _VCSgd_wVMYL
+Generating code for _VCSgd_dwGdg
+Generating code for _VCSgd_nbKzL
+Generating code for _VCSgd_gnBCG
+Generating code for _VCSgd_N1Z3T
+Generating code for _VCSgd_U5x4V
+Generating code for _VCSgd_YCUdG
+Generating code for _VCSgd_E1LsQ
+Generating code for _VCSgd_aaMQi
+Generating code for _VCSgd_uJQu1
+Generating code for _VCSgd_e43T8
+Generating code for _VCSgd_qMBxW
+Generating code for _VCSgd_qHRpL
+Generating code for _VCSgd_Wr0Ky
+Generating code for _VCSgd_VV1VV
+Generating code for _VCSgd_WI0pS
+Generating code for _VCSgd_gia75
+Generating code for _VCSgd_Q4Yr2
+Generating code for _VCSgd_w8HM3
+Generating code for _VCSgd_q2IzZ
+Generating code for _VCSgd_sbnA2
+Generating code for _VCSgd_iTVVM
+Generating code for _VCSgd_U3Zpn
+Generating code for _VCSgd_Njy4w
+Generating code for _VCSgd_HcBT3
+Generating code for _VCSgd_IPC5C
+Generating code for _VCSgd_dsAWw
+Generating code for _VCSgd_t26iQ
+Generating code for _VCSgd_Kxu6C
+Generating code for _VCSgd_VfJDC
+Generating code for _VCSgd_j81Sb
+Generating code for _VCSgd_mR7cj
+Generating code for _VCSgd_u27L4
+Generating code for _VCSgd_Wfkkv
+Generating code for _VCSgd_SK2NT
+Generating code for _VCSgd_i0VNW
+Generating code for _VCSgd_dNvNM
+Generating code for _VCSgd_IycPm
+Generating code for _VCSgd_mvVpN
+Generating code for _VCSgd_KHudA
+Generating code for _VCSgd_k1chz
+Generating code for _VCSgd_pFyQz
+Generating code for _VCSgd_I2gfL
+Generating code for _VCSgd_FmmN0
+Generating code for _VCSgd_hhILQ
+Generating code for _VCSgd_YMNij
+Generating code for _VCSgd_iibZN
+Generating code for _VCSgd_f1ki5
+Generating code for _VCSgd_KfStz
+Generating code for _VCSgd_yMSF4
+Generating code for _VCSgd_kTqxv
+Generating code for _VCSgd_A0tgR
+Generating code for _VCSgd_uZN8a
+Generating code for _VCSgd_VKMb9
+Generating code for _VCSgd_aNnj0
+Generating code for _VCSgd_hI5Lu
+Generating code for _VCSgd_TFaZC
+Generating code for _VCSgd_rtd9x
+Generating code for _VCSgd_Rcesm
+Generating code for _VCSgd_UKWxG
+Generating code for _VCSgd_Bt8Mh
+Generating code for _VCSgd_QR2gD
+Generating code for _VCSgd_zkSfV
+Generating code for _VCSgd_SANSV
+Generating code for _VCSgd_MHjyf
+Generating code for _VCSgd_p3SQ3
+Generating code for _VCSgd_EEHtv
+Generating code for _VCSgd_gGJEv
+Generating code for _VCSgd_frbBF
+Generating code for _VCSgd_J9vga
+Generating code for _VCSgd_B6mzg
+Generating code for _VCSgd_vt9pM
+Generating code for _VCSgd_P9FuB
+Generating code for _VCSgd_H4pqv
+Generating code for _VCSgd_EgdLw
+Generating code for _VCSgd_L6HsM
+Generating code for _VCSgd_Fnsqx
+Generating code for _VCSgd_Q0m70
+Generating code for _VCSgd_ihwfS
+Generating code for _VCSgd_rLj1H
+Generating code for _VCSgd_w3U43
+Generating code for _VCSgd_nqwYK
+Generating code for _VCSgd_xe58P
+Generating code for _VCSgd_F7PUi
+Generating code for _VCSgd_Ek7ka
+Generating code for _VCSgd_H50QU
+Generating code for _VCSgd_YKEwY
+Generating code for _VCSgd_PGsHF
+Generating code for _VCSgd_ZzKU0
+Generating code for _VCSgd_muRsw
+Generating code for _VCSgd_FU8cV
+Generating code for _VCSgd_me7Bi
+Generating code for _VCSgd_ABIJy
+Generating code for _VCSgd_iNWWI
+Generating code for _VCSgd_m9Bct
+Generating code for _VCSgd_ZjiZT
+Generating code for _VCSgd_s4DqA
+Generating code for _VCSgd_TWDPr
+Generating code for _VCSgd_AGjFA
+Generating code for _VCSgd_mq4Ak
+Generating code for _VCSgd_BHQii
+Generating code for _VCSgd_u7igD
+Generating code for _VCSgd_u6G3h
+Generating code for _VCSgd_v3cvn
+Generating code for _VCSgd_teIU7
+Generating code for _VCSgd_Gdw1p
+Generating code for _VCSgd_ULL3V
+Generating code for _VCSgd_m4CAv
+Generating code for _VCSgd_R5HBM
+Generating code for _VCSgd_PZf4P
+Generating code for _VCSgd_Ek2pp
+Generating code for _VCSgd_sgUVF
+Generating code for _VCSgd_Tf1Gj
+Generating code for _VCSgd_z5nmN
+Generating code for _VCSgd_REFk5
+Generating code for _VCSgd_NBg21
+Generating code for _VCSgd_yEt9s
+Generating code for _VCSgd_sZj6n
+Generating code for _VCSgd_yF8y6
+Generating code for _VCSgd_nyGq5
+Generating code for _VCSgd_aZhGz
+Generating code for _VCSgd_kKHAs
+Generating code for _VCSgd_Qmgde
+Generating code for _VCSgd_dYkNi
+Generating code for _VCSgd_L5LwD
+Generating code for _VCSgd_W1diG
+Generating code for _VCSgd_dHYMe
+Generating code for _VCSgd_yzGit
+Generating code for _VCSgd_QkYv2
+Generating code for _VCSgd_iDhD1
+Generating code for _VCSgd_cn8sF
+Generating code for _VCSgd_aFeP7
+Generating code for _VCSgd_p5mpm
+Generating code for _VCSgd_J11fQ
+Generating code for _VCSgd_YFzBq
+Generating code for _VCSgd_pbCNv
+Generating code for _VCSgd_zWy12
+Generating code for _VCSgd_iZjbp
+Generating code for _VCSgd_T5vB4
+Generating code for _VCSgd_Dzh9m
+Generating code for _VCSgd_qkCcq
+Generating code for _VCSgd_wv8bS
+Generating code for _VCSgd_FHqed
+Generating code for _VCSgd_aGZih
+Generating code for _VCSgd_M72BN
+Generating code for _VCSgd_rTJjp
+Generating code for _VCSgd_DbC4T
+Generating code for _VCSgd_TtaBb
+Generating code for _VCSgd_q5ibZ
+Generating code for _VCSgd_dpuCQ
+Generating code for _VCSgd_hiDcv
+Generating code for _VCSgd_AYTtY
+Generating code for _VCSgd_GgnS6
+Generating code for _VCSgd_LG7k3
+Generating code for _VCSgd_WziUm
+Generating code for _VCSgd_qguK7
+Generating code for _VCSgd_UGSN8
+Generating code for _VCSgd_SM3aD
+Generating code for _VCSgd_fEkcd
+Generating code for _VCSgd_d1PP3
+Generating code for _VCSgd_aDpHT
+Generating code for _VCSgd_trjvP
+Generating code for _VCSgd_T3Rts
+Generating code for _VCSgd_UdKby
+Generating code for _VCSgd_BaRUr
+Generating code for _VCSgd_DiiiN
+Generating code for _VCSgd_KGYru
+Generating code for _VCSgd_actWP
+Generating code for _VCSgd_eJfcJ
+Generating code for _VCSgd_Fb67W
+Generating code for _VCSgd_Yzsj5
+Generating code for _VCSgd_ta7yV
+Generating code for _VCSgd_IBder
+Generating code for _VCSgd_xeiJk
+Generating code for _VCSgd_pWibh
+Generating code for _VCSgd_uWZsk
+Generating code for _VCSgd_u9sQz
+Generating code for _VCSgd_ngenB
+Generating code for _VCSgd_sji8Z
+Generating code for _VCSgd_MBiLp
+Generating code for _VCSgd_tk8Zn
+Generating code for _VCSgd_Sd7wx
+Generating code for _VCSgd_HGvBG
+Generating code for _VCSgd_UKF8n
+Generating code for _VCSgd_pLm2z
+Generating code for _VCSgd_bbLBj
+Generating code for _VCSgd_sKcQh
+Generating code for _VCSgd_adBdz
+Generating code for _VCSgd_gI2eP
+Generating code for _VCSgd_WDLRk
+Generating code for _VCSgd_jqxYq
+Generating code for _VCSgd_fad4a
+Generating code for _VCSgd_uvEiS
+Generating code for _VCSgd_V9jC8
+Generating code for _VCSgd_b7Bq0
+Generating code for _VCSgd_GzAdF
+Generating code for _VCSgd_rY8z4
+Generating code for _VCSgd_auQtz
+Generating code for _VCSgd_fdTgJ
+Generating code for _VCSgd_qu5K0
+Generating code for _VCSgd_K51Le
+Generating code for _VCSgd_u87wf
+Generating code for _VCSgd_yDQKC
+Generating code for _VCSgd_zye5T
+Generating code for _VCSgd_AA8Ez
+Generating code for _VCSgd_KJjEd
+Generating code for _VCSgd_k0kEx
+Generating code for _VCSgd_bIQkR
+Generating code for _VCSgd_Vmwcg
+Generating code for _VCSgd_UAWPw
+Generating code for _VCSgd_twi7P
+Generating code for _VCSgd_BuLDJ
+Generating code for _VCSgd_ItAnR
+Generating code for _VCSgd_sSPdp
+Generating code for _VCSgd_hB9um
+Generating code for _VCSgd_q2SfT
+Generating code for _VCSgd_LxUCQ
+Generating code for _VCSgd_RaBgz
+Generating code for _VCSgd_umMNe
+Generating code for _VCSgd_BTQbm
+Generating code for _VCSgd_rY4KG
+Generating code for _VCSgd_G0DAG
+Generating code for _VCSgd_tB8Jh
+Generating code for _VCSgd_dQ5Wn
+Generating code for _VCSgd_PtKSc
+Generating code for _VCSgd_EbZGT
+Generating code for _VCSgd_JCc2U
+Generating code for _VCSgd_qCG1I
+Generating code for _VCSgd_t9iIi
+Generating code for _VCSgd_mTsSN
+Generating code for _VCSgd_Gn7sf
+Generating code for _VCSgd_Ci3YH
+Generating code for _VCSgd_bJYnW
+Generating code for _VCSgd_sp4iD
+Generating code for _VCSgd_eNMwA
+Generating code for _VCSgd_iuhL4
+Generating code for _VCSgd_vKEFA
+Generating code for _VCSgd_ybaRU
+Generating code for _VCSgd_JDE9k
+Generating code for _VCSgd_i8K1s
+Generating code for _VCSgd_sBeBK
+Generating code for _VCSgd_xEvNU
+Generating code for _VCSgd_fte8y
+Generating code for _VCSgd_SspYt
+Generating code for _VCSgd_gULwF
+Generating code for _VCSgd_D129d
+Generating code for _VCSgd_wp5G0
+Generating code for _VCSgd_Lum1u
+Generating code for _VCSgd_Wr9UR
+Generating code for _VCSgd_E2Ejq
+Generating code for _VCSgd_LfGLE
+Generating code for _VCSgd_aqy6k
+Generating code for _VCSgd_fFkRp
+Generating code for _VCSgd_TyBqE
+Generating code for _VCSgd_mRIyv
+Generating code for _VCSgd_mPKYW
+Generating code for _VCSgd_GS3AN
+Generating code for _VCSgd_JZhEk
+Generating code for _VCSgd_BirMk
+Generating code for _VCSgd_ImI2p
+Generating code for _VCSgd_wKYDz
+Generating code for _VCSgd_CkjSZ
+Generating code for _VCSgd_d8urw
+Generating code for _VCSgd_i0VtY
+Generating code for _VCSgd_rhWMb
+Generating code for _VCSgd_VEFqj
+Generating code for _VCSgd_ac8Cy
+Generating code for _VCSgd_nyPBA
+Generating code for _VCSgd_Kis2F
+Generating code for _VCSgd_J1ihj
+Generating code for _VCSgd_hQ6j6
+Generating code for _VCSgd_mb7Va
+Generating code for _VCSgd_bfUKV
+Generating code for _VCSgd_KnzGN
+Generating code for _VCSgd_AnTW7
+Generating code for _VCSgd_d4mqC
+Generating code for _VCSgd_AfHR6
+Generating code for _VCSgd_yRv63
+Generating code for _VCSgd_LDZwx
+Generating code for _VCSgd_htwSM
+Generating code for _VCSgd_KLQW9
+Generating code for _VCSgd_qZU6r
+Generating code for _VCSgd_QGJCq
+Generating code for _VCSgd_WSNfI
+Generating code for _VCSgd_r1EyR
+Generating code for _VCSgd_a6vTE
+Generating code for _VCSgd_hrrwG
+Generating code for _VCSgd_wjwhK
+Generating code for _VCSgd_Kqscq
+Generating code for _VCSgd_LSa5H
+Generating code for _VCSgd_RT7zd
+Generating code for _VCSgd_nqvn9
+Generating code for _VCSgd_A8GMJ
+Generating code for _VCSgd_GiRue
+Generating code for _VCSgd_eZcZM
+Generating code for _VCSgd_YP0eM
+Generating code for _VCSgd_KrGDi
+make[1]: Entering directory '/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig'
+make[1]: Leaving directory '/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig'
+make[1]: Entering directory '/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig'
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/mm.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/mm_dramsim2.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/remote_bitbang.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimDRAM.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimJTAG.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimSerial.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/SimUART.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/testchip_tsi.cc
+g++ -w  -pipe -fPIC -std=c++11 -I/home/eecs/msimbule/chipyard/esp-tools-install/include -I/home/eecs/msimbule/chipyard/tools/DRAMSim2 -I/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig -O3 -I/ecad/tools/synopsys/vcs/current/include    -c /home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/uart.cc
+cc1: warning: command line option '-std=c++11' is valid for C++/ObjC++ but not for C
+/home/eecs/msimbule/chipyard/sims/vcs/simv-chipyard-HwachaRocketConfig up to date
+make[1]: Leaving directory '/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/chipyard.TestHarness.HwachaRocketConfig'
+(set -o pipefail &&  /home/eecs/msimbule/chipyard/sims/vcs/simv-chipyard-HwachaRocketConfig +permissive +dramsim +dramsim_ini_dir=/home/eecs/msimbule/chipyard/generators/testchipip/src/main/resources/dramsim2_ini +max-cycles=10000000  +ntb_random_seed_automatic +verbose +permissive-off /home/eecs/msimbule/chipyard/generators/HD_sensor_fusion/software/fusion/main_vec-baremetal </dev/null 2> >(spike-dasm > /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.out) | tee /home/eecs/msimbule/chipyard/sims/vcs/output/chipyard.TestHarness.HwachaRocketConfig/main_vec-baremetal.log)
+Chronologic VCS simulator copyright 1991-2021
+Contains Synopsys proprietary information.
+Compiler version S-2021.09-SP1-1_Full64; Runtime version S-2021.09-SP1-1_Full64;  Jun 20 10:13 2022
+NOTE: automatic random seed used: 2982075779
+[UART] UART0 is here (stdin/stdout).
+spatial encoding cycles: 11409
+spatial encoding cycles: 26145
+spatial encoding cycles: 35838
+spatial encoding cycles: 9016
+spatial encoding cycles: 21985
+spatial encoding cycles: 28252
+spatial encoding cycles: 8418
+spatial encoding cycles: 20451
+spatial encoding cycles: 27542
+Initial Spatial cycles: 223047
+Temporal cycles: 96
+Assoc. Mem. cycles: 2608
+Sample 0 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 8283
+spatial encoding cycles: 20288
+spatial encoding cycles: 27574
+Spatial update cycles: 69038
+Temporal cycles: 30
+Assoc. Mem. cycles: 2013
+Sample 1 (predicted, golden) class: (0, 0)
+spatial encoding cycles: 8172
+spatial encoding cycles: 20146
+spatial encoding cycles: 27365
+Spatial update cycles: 68454
+Temporal cycles: 30
+Assoc. Mem. cycles: 2024
+Sample 2 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 8085
+spatial encoding cycles: 20085
+spatial encoding cycles: 27300
+Spatial update cycles: 68162
+Temporal cycles: 30
+Assoc. Mem. cycles: 2076
+Sample 3 (predicted, golden) class: (1, 1)
+spatial encoding cycles: 8122
+spatial encoding cycles: 20050
+spatial encoding cycles: 27302
+Spatial update cycles: 68297
+Temporal cycles: 30
+Assoc. Mem. cycles: 2040
+Sample 4 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 8074
+spatial encoding cycles: 20078
+spatial encoding cycles: 27281
+Spatial update cycles: 68104
+Temporal cycles: 30
+Assoc. Mem. cycles: 2061
+Sample 5 (predicted, golden) class: (1, 1)
+spatial encoding cycles: 8095
+spatial encoding cycles: 20088
+spatial encoding cycles: 27318
+Spatial update cycles: 68218
+Temporal cycles: 30
+Assoc. Mem. cycles: 2062
+Sample 6 (predicted, golden) class: (1, 0)
+spatial encoding cycles: 8079
+spatial encoding cycles: 20117
+spatial encoding cycles: 27307
+Spatial update cycles: 68152
+Temporal cycles: 30
+Assoc. Mem. cycles: 2008
+Sample 7 (predicted, golden) class: (1, 1)
+Total cycles: 788170
+Correct: 4 out of 8
+$finish called from file "/home/eecs/msimbule/chipyard/sims/vcs/generated-src/chipyard.TestHarness.HwachaRocketConfig/TestDriver.v", line 158.
+$finish at simulation time           5123057500
+           V C S   S i m u l a t i o n   R e p o r t 
+Time: 5123057500 ps
+CPU Time:   2325.970 seconds;       Data structure size:  27.5Mb
+Mon Jun 20 10:51:58 2022
